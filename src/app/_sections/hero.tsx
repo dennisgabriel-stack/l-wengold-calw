@@ -27,7 +27,7 @@ export function Hero() {
   return (
     <section
       ref={ref}
-      className="relative min-h-[100svh] flex items-center justify-center overflow-hidden px-5 sm:px-8 pt-24 pb-20"
+      className="relative min-h-[100svh] flex flex-col overflow-hidden px-5 sm:px-8 pt-28 pb-40 md:pb-32"
     >
       {/* Warm gradient backdrop with richer luxury tones */}
       <motion.div style={{ scale }} className="absolute inset-0 -z-10">
@@ -41,9 +41,9 @@ export function Hero() {
         {/* Subtle vignette */}
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_55%,rgba(26,18,11,0.18))]" />
 
-        {/* Pine tree silhouettes (bottom) - evoke Schwarzwald */}
+        {/* Pine tree silhouettes — hidden on mobile where they crowd the content */}
         <svg
-          className="absolute bottom-0 left-0 w-full opacity-[0.09]"
+          className="absolute bottom-0 left-0 w-full opacity-[0.07] hidden md:block"
           viewBox="0 0 1200 220"
           preserveAspectRatio="none"
           aria-hidden
@@ -62,9 +62,9 @@ export function Hero() {
           })}
         </svg>
 
-        {/* Mountain range */}
+        {/* Mountain range — hidden on mobile for clarity */}
         <svg
-          className="absolute bottom-0 left-0 w-full opacity-[0.05]"
+          className="absolute bottom-0 left-0 w-full opacity-[0.05] hidden md:block"
           viewBox="0 0 1200 300"
           preserveAspectRatio="none"
           aria-hidden
@@ -112,7 +112,7 @@ export function Hero() {
 
       <motion.div
         style={{ y: y1, opacity }}
-        className="relative z-10 mx-auto max-w-5xl w-full flex flex-col items-center text-center"
+        className="relative z-10 mx-auto max-w-5xl w-full flex flex-col items-center text-center flex-1 justify-center"
       >
         {/* Logo — first, centered, large */}
         <motion.div
@@ -252,14 +252,20 @@ export function Hero() {
 
       </motion.div>
 
-      {/* Scroll hint */}
+      {/* Scroll hint — now in the natural flow at the bottom of the hero */}
       <motion.div
-        animate={{ y: [0, 8, 0] }}
-        transition={{ duration: 2.2, repeat: Infinity }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-[var(--espresso-700)]/60 flex flex-col items-center gap-2 text-xs uppercase tracking-[0.3em]"
+        style={{ opacity }}
+        className="relative z-10 mt-12 md:mt-16 mx-auto flex flex-col items-center gap-2 text-[10px] md:text-xs uppercase tracking-[0.35em] text-[var(--espresso-700)]/55"
+        aria-hidden
       >
-        Scrollen
-        <ChevronDown size={14} />
+        <span>Scrollen</span>
+        <motion.span
+          animate={{ y: [0, 6, 0] }}
+          transition={{ duration: 2.2, repeat: Infinity }}
+          className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-[var(--gold-400)]/35 text-[var(--gold-600)]"
+        >
+          <ChevronDown size={14} />
+        </motion.span>
       </motion.div>
     </section>
   );
