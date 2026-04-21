@@ -20,9 +20,11 @@ export default function HomePage() {
     <>
       <Hero />
 
+      <CounterStrip />
+
       <section
         aria-hidden
-        className="relative border-y border-[var(--border)] bg-[var(--cream-100)]/70"
+        className="relative border-y border-[var(--border)] bg-[var(--cream-100)]/70 mt-12"
       >
         <Marquee
           items={[
@@ -101,8 +103,6 @@ export default function HomePage() {
           </Reveal>
         </div>
       </section>
-
-      <CounterStrip />
 
       <section className="relative py-28 md:py-36 px-5 sm:px-8">
         <div className="mx-auto max-w-7xl">
