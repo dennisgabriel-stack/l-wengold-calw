@@ -1,6 +1,9 @@
 /**
  * Curated Unsplash photos matching the site's themes.
  * All images are free for commercial use under the Unsplash License.
+ *
+ * If a specific URL ever stops resolving, the parallax tiles and
+ * other usages gracefully fall back to themed SVG illustrations.
  */
 
 const u = (id: string, w = 1600) =>
@@ -12,8 +15,8 @@ export const heroImage = {
 };
 
 export const collage = {
-  src: u("1624365168968-8ddc9e0baba5", 1400),
-  alt: "Goldmünzen und Schmuck arrangiert",
+  src: u("1605100804763-247f67b3557e", 1400),
+  alt: "Goldschmuck elegant arrangiert",
 };
 
 export const tiles = {
@@ -22,26 +25,26 @@ export const tiles = {
     alt: "Gestapelte Feingoldbarren 999.9",
   },
   jewelry: {
-    src: u("1605100804763-247f67b3557e", 1200),
-    alt: "Goldkette, Ringe und Schmuckstücke",
+    src: u("1599707367072-cd6ada2bc375", 1200),
+    alt: "Feine Goldkette mit Ring und Brosche",
   },
   silver: {
-    src: u("1583526241256-cb18e8fbfc4b", 1200),
-    alt: "Antikes Silberbesteck und Silberteile",
+    src: u("1594044516047-96d2b8b80e11", 1200),
+    alt: "Antikes Silberbesteck und Silbergefäße",
   },
   antiques: {
-    src: u("1518930259200-3e7a92c94c1a", 1200),
-    alt: "Antike goldene Taschenuhr",
+    src: u("1509048191080-d2984bad6ae5", 1200),
+    alt: "Antike goldene Taschenuhr auf Holz",
   },
   gems: {
-    src: u("1599643478518-a784e5dc4c8f", 1200),
-    alt: "Geschliffener Diamant mit funkelnden Facetten",
+    src: u("1515562141207-7a88fb7ce338", 1200),
+    alt: "Geschliffener Diamantring mit funkelnden Facetten",
   },
 };
 
 export const earring = {
-  src: u("1535632066927-ab7c9ab60908", 1200),
-  alt: "Einzelner edler Ohrring mit Perle",
+  src: u("1535632787350-4e68ef0ac584", 1200),
+  alt: "Einzelner edler Ohrring im Porträtstil",
 };
 
 export const blackForest = {
