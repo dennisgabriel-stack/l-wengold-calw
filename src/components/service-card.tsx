@@ -17,24 +17,47 @@ export function ServiceCard({
   return (
     <motion.article
       variants={staggerItem}
-      className="group relative p-8 rounded-3xl bg-[var(--cream-50)] border border-[var(--border)] hover:-translate-y-1 transition-all duration-500 hover:shadow-[var(--shadow-gold)] overflow-hidden"
+      className="group relative p-8 md:p-10 rounded-[28px] bg-[var(--cream-50)] border border-[var(--border)] overflow-hidden transition-all duration-700 hover:-translate-y-1 hover:shadow-[var(--shadow-gold-xl)]"
     >
-      <span className="absolute top-6 right-6 font-display text-6xl text-[var(--gold-400)]/25 leading-none">
+      {/* Decorative gold glow on hover */}
+      <div className="absolute -top-24 -right-24 w-48 h-48 rounded-full bg-[var(--gold-400)]/12 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+
+      {/* Corner number — outlined for luxury feel */}
+      <span
+        className="absolute -top-3 -right-2 font-display text-[180px] leading-none text-stroke-gold opacity-[0.18] group-hover:opacity-30 transition-opacity duration-700 pointer-events-none select-none"
+        aria-hidden
+      >
         {String(index + 1).padStart(2, "0")}
       </span>
 
-      <h3 className="font-display text-3xl leading-tight text-[var(--espresso-800)] max-w-[85%]">
+      {/* Top row */}
+      <div className="flex items-center gap-3 mb-6">
+        <span className="h-px w-10 bg-[var(--gold-500)]" />
+        <span className="text-[11px] uppercase tracking-[0.3em] text-[var(--gold-600)]">
+          Leistung {String(index + 1).padStart(2, "0")}
+        </span>
+      </div>
+
+      {/* Title */}
+      <h3 className="relative font-display text-3xl md:text-4xl leading-tight text-[var(--espresso-900)] max-w-[85%]">
         {title}
       </h3>
-      <div className="gold-divider my-5" />
-      <p className="text-[var(--espresso-700)] font-medium leading-relaxed">
+
+      {/* Gold rule */}
+      <div className="gold-divider my-6" />
+
+      {/* Lead */}
+      <p className="relative text-[var(--espresso-800)] font-medium leading-relaxed">
         {lead}
       </p>
-      <p className="mt-4 text-[var(--espresso-700)]/75 leading-relaxed text-[15px]">
+
+      {/* Body */}
+      <p className="relative mt-4 text-[var(--espresso-700)]/80 leading-relaxed text-[15px]">
         {body}
       </p>
 
-      <span className="absolute left-0 bottom-0 h-0.5 w-full bg-gradient-to-r from-transparent via-[var(--gold-400)] to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-left" />
+      {/* Bottom hover underline */}
+      <span className="absolute left-8 md:left-10 right-8 md:right-10 bottom-6 h-[1px] bg-gradient-to-r from-transparent via-[var(--gold-400)] to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-left pointer-events-none" />
     </motion.article>
   );
 }

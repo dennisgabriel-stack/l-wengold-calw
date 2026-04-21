@@ -29,11 +29,17 @@ export function Hero() {
       ref={ref}
       className="relative min-h-[100svh] flex items-center justify-center overflow-hidden px-5 sm:px-8 pt-24 pb-20"
     >
-      {/* Warm gradient backdrop */}
+      {/* Warm gradient backdrop with richer luxury tones */}
       <motion.div style={{ scale }} className="absolute inset-0 -z-10">
         <div className="absolute inset-0 bg-gradient-to-b from-[var(--cream-50)] via-[var(--cream-100)] to-[var(--cream-200)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_30%,rgba(212,165,89,0.22),transparent_65%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_85%_90%,rgba(47,74,53,0.08),transparent_60%)]" />
+        {/* Central gold spotlight */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_30%,rgba(212,177,119,0.32),transparent_55%)]" />
+        {/* Rose accent bottom-right */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_82%_85%,rgba(192,136,104,0.15),transparent_55%)]" />
+        {/* Deep corner tint */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_90%,rgba(37,52,40,0.10),transparent_50%)]" />
+        {/* Subtle vignette */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_55%,rgba(26,18,11,0.18))]" />
 
         {/* Pine tree silhouettes (bottom) - evoke Schwarzwald */}
         <svg

@@ -2,8 +2,9 @@
  * Curated Unsplash photos matching the site's themes.
  * All images are free for commercial use under the Unsplash License.
  *
- * If a specific URL ever stops resolving, the parallax tiles and
- * other usages gracefully fall back to themed SVG illustrations.
+ * If a specific URL ever stops resolving, the SmartImage component
+ * hides the broken result and the underlying gradient/SVG art stays
+ * visible so the layout never looks empty.
  */
 
 const u = (id: string, w = 1600) =>
@@ -12,6 +13,12 @@ const u = (id: string, w = 1600) =>
 export const heroImage = {
   src: u("1610375461246-83df859d849d"),
   alt: "Goldbarren im warmen Licht",
+};
+
+/** Large background on the dark hero overlay (used very subtly with vignette) */
+export const heroAmbient = {
+  src: u("1620714223084-8fcacc6dfd8d", 1800),
+  alt: "Warmes Licht auf Gold",
 };
 
 export const collage = {
@@ -42,6 +49,26 @@ export const tiles = {
   },
 };
 
+/** Images for the "Was wir ankaufen" editorial split layout */
+export const editorial = {
+  gold: {
+    src: u("1610375461246-83df859d849d", 1400),
+    alt: "Feingold in warmem Licht",
+  },
+  jewelry: {
+    src: u("1605100804763-247f67b3557e", 1400),
+    alt: "Exklusiver Goldschmuck",
+  },
+  watch: {
+    src: u("1509048191080-d2984bad6ae5", 1400),
+    alt: "Antike goldene Taschenuhr",
+  },
+  diamond: {
+    src: u("1515562141207-7a88fb7ce338", 1400),
+    alt: "Geschliffener Diamant",
+  },
+};
+
 export const earring = {
   src: u("1535632787350-4e68ef0ac584", 1200),
   alt: "Einzelner edler Ohrring im Porträtstil",
@@ -52,7 +79,19 @@ export const blackForest = {
   alt: "Schwarzwald-Panorama mit Tannen",
 };
 
-/** Secondary lifestyle images for decorative usage */
+/** Aktionstage CTA dark photo banner */
+export const aktionstageBanner = {
+  src: u("1624365168968-8ddc9e0baba5", 1800),
+  alt: "Goldene Münzen und Schmuck in warmem Studio-Licht",
+};
+
+/** Testimonial / editorial quote portrait */
+export const editorialPortrait = {
+  src: u("1511632765486-a01980e01a18", 1200),
+  alt: "Zufriedener Kunde mit edlem Erbstück",
+};
+
+/** Secondary lifestyle images */
 export const secondary = {
   goldCoins: {
     src: u("1620714223084-8fcacc6dfd8d", 1200),
