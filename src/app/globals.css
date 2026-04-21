@@ -1,34 +1,47 @@
 @import "tailwindcss";
 
 /* ----------------------------------------------------------------
-   Löwengold Calw – Design Tokens
-   Warm Schwarzwald meets classic Juwelier
+   Löwengold Calw – Luxury Design Tokens
+   Refined palette: warm ivory · deep ink · champagne gold ·
+   rose gold accent · forest green · burgundy accent
    ---------------------------------------------------------------- */
 
 :root {
   /* Backgrounds (warm ivory / crème) */
-  --cream-50: #fbf6ea;
-  --cream-100: #f6eedc;
-  --cream-200: #ede1c6;
-  --cream-300: #dfcea3;
+  --cream-50: #fbf5e7;
+  --cream-100: #f5ecd7;
+  --cream-200: #ebddbc;
+  --cream-300: #d8c597;
 
-  /* Text / deep wood */
-  --espresso-900: #1b120a;
+  /* Deep ink / espresso — warmer, near-black */
+  --ink-900: #0d0905;
+  --ink-800: #1a120b;
+  --espresso-900: #1a120b;
   --espresso-800: #2a1c10;
   --espresso-700: #3b2a19;
   --espresso-600: #5a4227;
 
-  /* Gold spectrum */
-  --gold-50: #fbf2d9;
-  --gold-200: #e9cf94;
-  --gold-400: #d4a559;
-  --gold-500: #b8894a;
+  /* Champagne-gold spectrum */
+  --gold-50: #fbf1d7;
+  --gold-200: #ecd29a;
+  --gold-300: #e0bd78;
+  --gold-400: #d4b177;
+  --gold-500: #b8934a;
   --gold-600: #956c34;
-  --gold-700: #71501f;
+  --gold-700: #715020;
 
-  /* Forest / moss accents */
-  --forest-700: #2f4a35;
-  --forest-600: #3f5f46;
+  /* Rose-gold / copper accent */
+  --rose-500: #c08868;
+  --rose-600: #a46b4c;
+
+  /* Forest / moss accents (Schwarzwald) */
+  --forest-800: #1b2d21;
+  --forest-700: #253428;
+  --forest-600: #3a5b41;
+
+  /* Rich burgundy for editorial accents */
+  --burgundy-700: #5b1a22;
+  --burgundy-600: #782332;
 
   /* Walnut wood */
   --walnut-700: #6b4226;
@@ -44,6 +57,8 @@
   --shadow-soft: 0 2px 8px rgba(42, 28, 16, 0.06),
     0 20px 60px -20px rgba(42, 28, 16, 0.18);
   --shadow-gold: 0 10px 40px -10px rgba(184, 137, 74, 0.35);
+  --shadow-gold-xl: 0 20px 80px -20px rgba(184, 137, 74, 0.55);
+  --shadow-deep: 0 40px 80px -20px rgba(13, 9, 5, 0.45);
 }
 
 @theme inline {
@@ -53,18 +68,26 @@
   --color-cream-100: var(--cream-100);
   --color-cream-200: var(--cream-200);
   --color-cream-300: var(--cream-300);
+  --color-ink-900: var(--ink-900);
+  --color-ink-800: var(--ink-800);
   --color-espresso-900: var(--espresso-900);
   --color-espresso-800: var(--espresso-800);
   --color-espresso-700: var(--espresso-700);
   --color-espresso-600: var(--espresso-600);
   --color-gold-50: var(--gold-50);
   --color-gold-200: var(--gold-200);
+  --color-gold-300: var(--gold-300);
   --color-gold-400: var(--gold-400);
   --color-gold-500: var(--gold-500);
   --color-gold-600: var(--gold-600);
   --color-gold-700: var(--gold-700);
+  --color-rose-500: var(--rose-500);
+  --color-rose-600: var(--rose-600);
+  --color-forest-800: var(--forest-800);
   --color-forest-700: var(--forest-700);
   --color-forest-600: var(--forest-600);
+  --color-burgundy-700: var(--burgundy-700);
+  --color-burgundy-600: var(--burgundy-600);
   --color-walnut-700: var(--walnut-700);
   --color-walnut-800: var(--walnut-800);
 
@@ -96,7 +119,24 @@ body {
   color: var(--espresso-900);
 }
 
-/* Subtle paper-texture noise over everything */
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--cream-100);
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, var(--gold-500), var(--gold-700));
+  border-radius: 10px;
+  border: 2px solid var(--cream-100);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, var(--gold-400), var(--gold-600));
+}
+
+/* Paper texture backgrounds */
 .bg-paper {
   background-color: var(--cream-50);
   background-image: radial-gradient(
@@ -108,13 +148,29 @@ body {
 }
 
 .bg-paper-dark {
-  background-color: var(--espresso-900);
+  background-color: var(--ink-900);
   background-image: radial-gradient(
       at 20% 10%,
-      rgba(212, 165, 89, 0.14) 0,
+      rgba(212, 177, 119, 0.18) 0,
       transparent 55%
     ),
-    radial-gradient(at 80% 80%, rgba(184, 137, 74, 0.1) 0, transparent 50%);
+    radial-gradient(at 80% 80%, rgba(192, 136, 104, 0.1) 0, transparent 50%);
+}
+
+/* Deep ink panel — for dark sections */
+.bg-ink {
+  background-color: var(--ink-900);
+  background-image:
+    radial-gradient(ellipse at 30% 0%, rgba(212, 177, 119, 0.14), transparent 55%),
+    radial-gradient(ellipse at 85% 110%, rgba(192, 136, 104, 0.1), transparent 55%);
+}
+
+/* Luxurious cream panel — subtle warm radial gradient */
+.bg-luxe-cream {
+  background-color: var(--cream-50);
+  background-image:
+    radial-gradient(ellipse at 30% 20%, rgba(212, 177, 119, 0.22), transparent 60%),
+    radial-gradient(ellipse at 80% 90%, rgba(192, 136, 104, 0.12), transparent 60%);
 }
 
 .grain::after {
@@ -123,7 +179,7 @@ body {
   inset: 0;
   pointer-events: none;
   z-index: 100;
-  opacity: 0.06;
+  opacity: 0.045;
   mix-blend-mode: multiply;
   background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/></filter><rect width='200' height='200' filter='url(%23n)'/></svg>");
 }
@@ -143,6 +199,18 @@ body {
   background-clip: text;
   color: transparent;
   animation: shimmer 6s linear infinite;
+}
+
+.text-gold-rich {
+  background: linear-gradient(
+    180deg,
+    var(--gold-300) 0%,
+    var(--gold-500) 50%,
+    var(--gold-700) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 @keyframes shimmer {
@@ -199,6 +267,29 @@ body {
   );
 }
 
+/* Fancy gold rule with central diamond */
+.gold-rule {
+  position: relative;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--gold-400) 40%,
+    var(--gold-400) 60%,
+    transparent
+  );
+}
+.gold-rule::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 6px;
+  height: 6px;
+  background: var(--gold-400);
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
 /* Marquee */
 @keyframes marquee {
   0% { transform: translateX(0); }
@@ -221,6 +312,13 @@ body {
 }
 .animate-slow-spin { animation: slow-spin 40s linear infinite; }
 
+/* Ambient pulse */
+@keyframes ambient-pulse {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.02); }
+}
+.animate-ambient { animation: ambient-pulse 8s ease-in-out infinite; }
+
 /* Reveal baseline (used by framer-motion fallbacks) */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
@@ -240,13 +338,13 @@ body {
 .cursor-glow {
   pointer-events: none;
   position: fixed;
-  width: 420px;
-  height: 420px;
+  width: 520px;
+  height: 520px;
   border-radius: 50%;
-  filter: blur(60px);
+  filter: blur(80px);
   background: radial-gradient(
     circle,
-    rgba(212, 165, 89, 0.25) 0%,
+    rgba(212, 177, 119, 0.25) 0%,
     transparent 70%
   );
   transform: translate(-50%, -50%);
@@ -257,3 +355,50 @@ body {
 /* Utility: serif display */
 .font-display { font-family: var(--font-cormorant), Georgia, serif; }
 .font-serif { font-family: var(--font-cormorant), Georgia, serif; }
+
+/* Glass panels */
+.glass {
+  background: rgba(251, 245, 231, 0.72);
+  backdrop-filter: blur(18px) saturate(120%);
+  -webkit-backdrop-filter: blur(18px) saturate(120%);
+  border: 1px solid rgba(212, 177, 119, 0.22);
+}
+.glass-dark {
+  background: rgba(13, 9, 5, 0.55);
+  backdrop-filter: blur(22px) saturate(130%);
+  -webkit-backdrop-filter: blur(22px) saturate(130%);
+  border: 1px solid rgba(212, 177, 119, 0.15);
+}
+
+/* Spotlight (use in hero / feature sections) */
+.spotlight {
+  background: radial-gradient(
+    ellipse at 50% 40%,
+    rgba(212, 177, 119, 0.18),
+    transparent 55%
+  );
+}
+
+/* Deep vignette for photo sections */
+.vignette::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at center,
+    transparent 40%,
+    rgba(13, 9, 5, 0.55) 100%
+  );
+  pointer-events: none;
+}
+
+/* Text stroke for outlined headings */
+.text-stroke-gold {
+  -webkit-text-stroke: 1px var(--gold-500);
+  color: transparent;
+}
+
+/* Hairline borders */
+.border-hairline {
+  border: 1px solid rgba(184, 137, 74, 0.25);
+}

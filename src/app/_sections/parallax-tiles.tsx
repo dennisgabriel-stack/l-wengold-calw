@@ -101,13 +101,13 @@ export function ParallaxTiles() {
     >
       <div className="mx-auto max-w-7xl">
         <div className="grid md:grid-cols-12 gap-5 md:gap-6">
-          {items.map((t) => (
+          {items.map((t, idx) => (
             <motion.article
               key={t.title}
               style={isDesktop ? { y: t.y } : undefined}
               whileHover={{ scale: 1.015 }}
               transition={{ type: "spring", stiffness: 220, damping: 22 }}
-              className={`relative overflow-hidden rounded-3xl aspect-[5/4] ${t.colspan} ${t.bg} group isolate`}
+              className={`relative overflow-hidden rounded-[28px] aspect-[5/4] ${t.colspan} ${t.bg} group isolate`}
             >
               {/* Themed SVG artwork — always visible as a fallback */}
               <div className="absolute inset-0 opacity-90" aria-hidden>
@@ -120,21 +120,34 @@ export function ParallaxTiles() {
                 alt={t.image.alt}
                 fill
                 sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
-                className="object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-105"
+                className="object-cover transition-transform duration-[1400ms] ease-out group-hover:scale-110"
               />
 
-              {/* Dark gradient for text legibility */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/10 pointer-events-none" />
+              {/* Dark tonal gradient */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent pointer-events-none" />
+              {/* Subtle gold tint on hover */}
+              <div className="absolute inset-0 bg-gradient-to-br from-[var(--gold-400)]/0 to-[var(--gold-600)]/0 group-hover:from-[var(--gold-400)]/12 group-hover:to-transparent transition-all duration-700 pointer-events-none" />
               {/* Gold rim */}
-              <div className="absolute inset-0 ring-1 ring-inset ring-[var(--gold-400)]/25 rounded-3xl pointer-events-none" />
+              <div className="absolute inset-0 ring-1 ring-inset ring-[var(--gold-400)]/25 rounded-[28px] pointer-events-none" />
 
-              <div className="relative z-10 p-8 flex flex-col justify-end h-full">
-                <p className="text-xs uppercase tracking-[0.25em] text-[var(--gold-400)] drop-shadow">
+              {/* Corner meta */}
+              <div className="absolute inset-x-0 top-0 p-6 md:p-8 flex items-start justify-between z-10">
+                <span className="font-display text-sm tracking-[0.3em] text-[var(--gold-400)] drop-shadow">
+                  {String(idx + 1).padStart(2, "0")}
+                </span>
+                <span className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-[var(--gold-400)]/40 text-[var(--gold-400)] text-lg font-light group-hover:bg-[var(--gold-400)]/15 group-hover:rotate-45 transition-all">
+                  +
+                </span>
+              </div>
+
+              <div className="relative z-10 p-6 md:p-8 flex flex-col justify-end h-full">
+                <p className="text-[11px] md:text-xs uppercase tracking-[0.3em] text-[var(--gold-400)] drop-shadow">
                   {t.sub}
                 </p>
                 <h3 className="mt-2 font-display text-3xl md:text-5xl text-white drop-shadow-lg">
                   {t.title}
                 </h3>
+                <span className="mt-4 h-px w-10 bg-[var(--gold-400)] scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-700" />
               </div>
             </motion.article>
           ))}

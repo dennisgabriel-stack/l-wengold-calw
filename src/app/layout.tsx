@@ -6,6 +6,7 @@ import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { CursorGlow } from "@/components/cursor-glow";
 import { Splash } from "@/components/splash";
+import { ScrollProgress } from "@/components/scroll-progress";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -67,6 +68,7 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col bg-paper grain">
         <Splash />
+        <ScrollProgress />
         <SmoothScroll>
           <CursorGlow />
           <Header />
