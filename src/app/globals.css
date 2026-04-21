@@ -1,0 +1,259 @@
+@import "tailwindcss";
+
+/* ----------------------------------------------------------------
+   Löwengold Calw – Design Tokens
+   Warm Schwarzwald meets classic Juwelier
+   ---------------------------------------------------------------- */
+
+:root {
+  /* Backgrounds (warm ivory / crème) */
+  --cream-50: #fbf6ea;
+  --cream-100: #f6eedc;
+  --cream-200: #ede1c6;
+  --cream-300: #dfcea3;
+
+  /* Text / deep wood */
+  --espresso-900: #1b120a;
+  --espresso-800: #2a1c10;
+  --espresso-700: #3b2a19;
+  --espresso-600: #5a4227;
+
+  /* Gold spectrum */
+  --gold-50: #fbf2d9;
+  --gold-200: #e9cf94;
+  --gold-400: #d4a559;
+  --gold-500: #b8894a;
+  --gold-600: #956c34;
+  --gold-700: #71501f;
+
+  /* Forest / moss accents */
+  --forest-700: #2f4a35;
+  --forest-600: #3f5f46;
+
+  /* Walnut wood */
+  --walnut-700: #6b4226;
+  --walnut-800: #4a2d19;
+
+  /* Functional */
+  --background: var(--cream-50);
+  --foreground: var(--espresso-800);
+  --muted: var(--cream-200);
+  --border: rgba(184, 137, 74, 0.25);
+
+  /* Shadows */
+  --shadow-soft: 0 2px 8px rgba(42, 28, 16, 0.06),
+    0 20px 60px -20px rgba(42, 28, 16, 0.18);
+  --shadow-gold: 0 10px 40px -10px rgba(184, 137, 74, 0.35);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-cream-50: var(--cream-50);
+  --color-cream-100: var(--cream-100);
+  --color-cream-200: var(--cream-200);
+  --color-cream-300: var(--cream-300);
+  --color-espresso-900: var(--espresso-900);
+  --color-espresso-800: var(--espresso-800);
+  --color-espresso-700: var(--espresso-700);
+  --color-espresso-600: var(--espresso-600);
+  --color-gold-50: var(--gold-50);
+  --color-gold-200: var(--gold-200);
+  --color-gold-400: var(--gold-400);
+  --color-gold-500: var(--gold-500);
+  --color-gold-600: var(--gold-600);
+  --color-gold-700: var(--gold-700);
+  --color-forest-700: var(--forest-700);
+  --color-forest-600: var(--forest-600);
+  --color-walnut-700: var(--walnut-700);
+  --color-walnut-800: var(--walnut-800);
+
+  --font-sans: var(--font-inter);
+  --font-serif: var(--font-cormorant);
+  --font-display: var(--font-cormorant);
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--background);
+  color: var(--foreground);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), system-ui, sans-serif;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--gold-400);
+  color: var(--espresso-900);
+}
+
+/* Subtle paper-texture noise over everything */
+.bg-paper {
+  background-color: var(--cream-50);
+  background-image: radial-gradient(
+      at 20% 10%,
+      rgba(184, 137, 74, 0.08) 0,
+      transparent 50%
+    ),
+    radial-gradient(at 80% 90%, rgba(47, 74, 53, 0.06) 0, transparent 50%);
+}
+
+.bg-paper-dark {
+  background-color: var(--espresso-900);
+  background-image: radial-gradient(
+      at 20% 10%,
+      rgba(212, 165, 89, 0.14) 0,
+      transparent 55%
+    ),
+    radial-gradient(at 80% 80%, rgba(184, 137, 74, 0.1) 0, transparent 50%);
+}
+
+.grain::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 100;
+  opacity: 0.06;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/></filter><rect width='200' height='200' filter='url(%23n)'/></svg>");
+}
+
+/* Gold shimmer for headings */
+.text-gold-shimmer {
+  background: linear-gradient(
+    100deg,
+    var(--gold-600) 0%,
+    var(--gold-400) 35%,
+    #f8e5ad 50%,
+    var(--gold-400) 65%,
+    var(--gold-600) 100%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shimmer 6s linear infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Animated underline */
+.link-underline {
+  position: relative;
+}
+.link-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.5s cubic-bezier(0.77, 0, 0.18, 1);
+}
+.link-underline:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Wood grain (subtle) */
+.bg-wood {
+  background-color: var(--walnut-800);
+  background-image: repeating-linear-gradient(
+      90deg,
+      rgba(255, 240, 210, 0.02) 0 2px,
+      transparent 2px 7px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.12) 0 1px,
+      transparent 1px 13px
+    );
+}
+
+/* Gradient divider */
+.gold-divider {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--gold-400) 20%,
+    var(--gold-500) 50%,
+    var(--gold-400) 80%,
+    transparent
+  );
+}
+
+/* Marquee */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.animate-marquee {
+  animation: marquee 40s linear infinite;
+}
+
+/* Float */
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(2deg); }
+}
+.animate-float { animation: float 7s ease-in-out infinite; }
+
+/* Slow spin for ornaments */
+@keyframes slow-spin {
+  to { transform: rotate(360deg); }
+}
+.animate-slow-spin { animation: slow-spin 40s linear infinite; }
+
+/* Reveal baseline (used by framer-motion fallbacks) */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* Focus ring */
+:focus-visible {
+  outline: 2px solid var(--gold-400);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Cursor glow area */
+.cursor-glow {
+  pointer-events: none;
+  position: fixed;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  filter: blur(60px);
+  background: radial-gradient(
+    circle,
+    rgba(212, 165, 89, 0.25) 0%,
+    transparent 70%
+  );
+  transform: translate(-50%, -50%);
+  z-index: 0;
+  transition: opacity 0.4s ease;
+}
+
+/* Utility: serif display */
+.font-display { font-family: var(--font-cormorant), Georgia, serif; }
+.font-serif { font-family: var(--font-cormorant), Georgia, serif; }
