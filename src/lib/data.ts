@@ -1,5 +1,6 @@
 export const contact = {
   name: "Löwengold Calw",
+  owner: "Claudia Paluna",
   claim: "Gold & Silberankauf",
   street: "Altburger Str. 13",
   zip: "75365",
@@ -113,7 +114,9 @@ export const antiques = [
   "Ölgemälde",
   "Teppiche",
   "Zinn",
+  "Münzen",
   "Schreibmaschinen",
+  "Nähmaschinen",
   "Antike Geldscheine",
   "Briefmarken",
   "Möbel",
