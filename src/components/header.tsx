@@ -33,89 +33,99 @@ export function Header() {
   }, [open]);
 
   return (
-    <header
-      className={cn(
-        "fixed top-0 inset-x-0 z-50 transition-all duration-500",
-        scrolled
-          ? "bg-[var(--cream-50)]/85 backdrop-blur-md border-b border-[var(--border)]"
-          : "bg-transparent"
-      )}
-    >
-      <div className="mx-auto max-w-7xl px-5 sm:px-8 flex items-center justify-between h-20">
-        <Link
-          href="/"
-          aria-label="Löwengold Calw – Startseite"
-          className="flex items-center group"
-        >
-          <LogoMark
-            priority
-            className="!h-14 md:!h-16 !w-auto -my-1 transition-transform group-hover:scale-[1.04] duration-500"
-          />
-        </Link>
-
-        <nav className="hidden lg:flex items-center gap-10">
-          {nav.map((item) => {
-            const active =
-              item.href === "/"
-                ? pathname === "/"
-                : pathname.startsWith(item.href);
-            return (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={cn(
-                  "relative text-[13px] uppercase tracking-[0.24em] font-medium transition-colors",
-                  active
-                    ? "text-[var(--gold-600)]"
-                    : "text-[var(--espresso-700)] hover:text-[var(--gold-600)]"
-                )}
-              >
-                {item.label}
-                {active && (
-                  <motion.span
-                    layoutId="nav-underline"
-                    className="absolute -bottom-1.5 left-0 right-0 h-px bg-[var(--gold-500)]"
-                    transition={{
-                      type: "spring",
-                      stiffness: 420,
-                      damping: 34,
-                    }}
-                  />
-                )}
-              </Link>
-            );
-          })}
-        </nav>
-
-        <div className="flex items-center gap-3">
-          <a
-            href={`tel:${contact.phoneRaw}`}
-            className="hidden md:inline-flex items-center gap-2 text-sm font-medium text-[var(--espresso-700)] hover:text-[var(--gold-600)] transition-colors"
+    <>
+      <header
+        className={cn(
+          "fixed top-0 inset-x-0 z-50 transition-all duration-500",
+          scrolled
+            ? "bg-[var(--cream-50)]/85 backdrop-blur-md border-b border-[var(--border)]"
+            : "bg-transparent"
+        )}
+      >
+        <div className="mx-auto max-w-7xl px-5 sm:px-8 flex items-center justify-between h-20">
+          <Link
+            href="/"
+            aria-label="Löwengold Calw – Startseite"
+            className="flex items-center group"
           >
-            <Phone size={15} />
-            <span className="tracking-wide">{contact.phone}</span>
-          </a>
+            <LogoMark
+              priority
+              className="!h-14 md:!h-16 !w-auto -my-1 transition-transform group-hover:scale-[1.04] duration-500"
+            />
+          </Link>
 
-          <button
-            aria-label="Menü"
-            onClick={() => setOpen((v) => !v)}
-            className="lg:hidden inline-flex items-center justify-center h-11 w-11 rounded-full border border-[var(--border)] text-[var(--espresso-800)] hover:bg-[var(--cream-100)]"
-          >
-            {open ? <X size={20} /> : <Menu size={20} />}
-          </button>
+          <nav className="hidden lg:flex items-center gap-10">
+            {nav.map((item) => {
+              const active =
+                item.href === "/"
+                  ? pathname === "/"
+                  : pathname.startsWith(item.href);
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className={cn(
+                    "relative text-[13px] uppercase tracking-[0.24em] font-medium transition-colors",
+                    active
+                      ? "text-[var(--gold-600)]"
+                      : "text-[var(--espresso-700)] hover:text-[var(--gold-600)]"
+                  )}
+                >
+                  {item.label}
+                  {active && (
+                    <motion.span
+                      layoutId="nav-underline"
+                      className="absolute -bottom-1.5 left-0 right-0 h-px bg-[var(--gold-500)]"
+                      transition={{
+                        type: "spring",
+                        stiffness: 420,
+                        damping: 34,
+                      }}
+                    />
+                  )}
+                </Link>
+              );
+            })}
+          </nav>
+
+          <div className="flex items-center gap-3">
+            <a
+              href={`tel:${contact.phoneRaw}`}
+              className="hidden md:inline-flex items-center gap-2 text-sm font-medium text-[var(--espresso-700)] hover:text-[var(--gold-600)] transition-colors"
+            >
+              <Phone size={15} />
+              <span className="tracking-wide">{contact.phone}</span>
+            </a>
+
+            <button
+              aria-label="Menü"
+              aria-expanded={open}
+              onClick={() => setOpen((v) => !v)}
+              className="lg:hidden inline-flex items-center justify-center h-11 w-11 rounded-full border border-[var(--border)] text-[var(--espresso-800)] hover:bg-[var(--cream-100)] bg-[var(--cream-50)]/85 backdrop-blur-sm"
+            >
+              {open ? <X size={20} /> : <Menu size={20} />}
+            </button>
+          </div>
         </div>
-      </div>
+      </header>
 
-      {/* Mobile overlay */}
+      {/*
+        Mobile overlay — rendered as a SIBLING of the header, not a child.
+        The header applies backdrop-blur when scrolled, which in CSS breaks
+        position:fixed for descendants (they get positioned relative to the
+        header box instead of the viewport). Keeping the overlay outside the
+        header guarantees it always covers the full viewport.
+      */}
       <AnimatePresence>
         {open && (
           <motion.div
+            key="mobile-menu"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
             style={{ backgroundColor: "var(--cream-50)" }}
-            className="lg:hidden fixed inset-x-0 top-20 bottom-0 z-40 overflow-y-auto"
+            className="lg:hidden fixed inset-x-0 top-20 bottom-0 z-[55] overflow-y-auto"
           >
             {/* Soft decorative gold glow — stays beneath the opaque background */}
             <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_50%_30%,rgba(212,165,89,0.18),transparent_60%)]" />
@@ -138,6 +148,7 @@ export function Header() {
                 >
                   <Link
                     href={item.href}
+                    onClick={() => setOpen(false)}
                     className="font-display text-4xl tracking-wide text-[var(--espresso-800)] hover:text-[var(--gold-600)]"
                   >
                     {item.label}
@@ -158,6 +169,6 @@ export function Header() {
           </motion.div>
         )}
       </AnimatePresence>
-    </header>
+    </>
   );
 }
