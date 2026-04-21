@@ -2,9 +2,16 @@
 
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import { ChevronDown } from "lucide-react";
+import { Award, ChevronDown, Coins, Gem, HandshakeIcon } from "lucide-react";
 import { MagneticLink } from "@/components/button";
 import { LogoMark } from "@/components/logo";
+
+const heroIcons = [
+  { Icon: Award, label: "25+ Jahre Erfahrung" },
+  { Icon: Gem, label: "Gold · Silber · Edelsteine" },
+  { Icon: Coins, label: "16 Münzsorten" },
+  { Icon: HandshakeIcon, label: "Sofort in bar" },
+];
 
 export function Hero() {
   const ref = useRef<HTMLDivElement>(null);
@@ -114,6 +121,51 @@ export function Hero() {
           />
         </motion.div>
 
+        {/* 4 animated icon chips between logo and headline */}
+        <motion.ul
+          initial="hidden"
+          animate="show"
+          variants={{
+            hidden: {},
+            show: { transition: { staggerChildren: 0.1, delayChildren: 0.4 } },
+          }}
+          className="mb-10 md:mb-12 flex flex-wrap items-center justify-center gap-3 md:gap-4"
+        >
+          {heroIcons.map(({ Icon, label }) => (
+            <motion.li
+              key={label}
+              variants={{
+                hidden: { opacity: 0, y: 18, scale: 0.9 },
+                show: {
+                  opacity: 1,
+                  y: 0,
+                  scale: 1,
+                  transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] as const },
+                },
+              }}
+              whileHover={{ y: -4, scale: 1.04 }}
+              className="group relative flex items-center gap-2.5 px-4 md:px-5 py-2.5 rounded-full bg-[var(--cream-50)]/85 backdrop-blur border border-[var(--gold-400)]/40 shadow-[0_6px_20px_-10px_rgba(184,137,74,0.35)]"
+            >
+              <motion.span
+                animate={{ y: [0, -3, 0] }}
+                transition={{
+                  duration: 3.5,
+                  repeat: Infinity,
+                  repeatType: "mirror",
+                  ease: "easeInOut",
+                }}
+                className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-[var(--gold-400)]/15 text-[var(--gold-600)] group-hover:bg-[var(--gold-400)]/25 transition-colors"
+              >
+                <Icon size={15} />
+              </motion.span>
+              <span className="text-[11px] md:text-[13px] uppercase tracking-[0.2em] text-[var(--espresso-800)]">
+                {label}
+              </span>
+              <span className="absolute inset-0 rounded-full ring-0 ring-[var(--gold-400)]/0 group-hover:ring-2 group-hover:ring-[var(--gold-400)]/40 transition-all pointer-events-none" />
+            </motion.li>
+          ))}
+        </motion.ul>
+
         {/* Headline */}
         <h1 className="font-display text-[clamp(3.5rem,10vw,8.5rem)] leading-[0.95] tracking-tight text-[var(--espresso-900)]">
           {"Löwen".split("").map((c, i) => (
@@ -189,27 +241,6 @@ export function Hero() {
           </MagneticLink>
         </motion.div>
 
-        {/* Trust tags */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.7, duration: 1 }}
-          className="mt-14 flex items-center justify-center gap-x-8 gap-y-3 flex-wrap"
-        >
-          {[
-            "Gold · Silber · Platin · Palladium",
-            "Kostenlose Schätzung",
-            "Sofortige Barauszahlung",
-          ].map((t) => (
-            <div
-              key={t}
-              className="flex items-center gap-2 text-sm text-[var(--espresso-700)]/80"
-            >
-              <span className="w-1.5 h-1.5 rounded-full bg-[var(--gold-500)]" />
-              {t}
-            </div>
-          ))}
-        </motion.div>
       </motion.div>
 
       {/* Scroll hint */}
