@@ -112,6 +112,18 @@ export function Hero() {
         className="relative z-10 mx-auto max-w-7xl w-full grid lg:grid-cols-12 gap-12 items-center"
       >
         <div className="lg:col-span-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20, scale: 0.92 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] as const }}
+            className="mb-8"
+          >
+            <LogoMark
+              priority
+              className="!h-28 md:!h-36 !w-auto"
+            />
+          </motion.div>
+
           <motion.p
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
@@ -123,9 +135,9 @@ export function Hero() {
           </motion.p>
 
           <h1 className="mt-7 font-display text-[clamp(3rem,8vw,7.5rem)] leading-[0.95] tracking-tight text-[var(--espresso-900)]">
-            {"Löwengold".split("").map((c, i) => (
+            {"Löwen".split("").map((c, i) => (
               <motion.span
-                key={i}
+                key={`a${i}`}
                 initial={{ opacity: 0, y: 60, rotate: -8 }}
                 animate={{ opacity: 1, y: 0, rotate: 0 }}
                 transition={{
@@ -138,15 +150,21 @@ export function Hero() {
                 {c}
               </motion.span>
             ))}
-            <br />
-            <motion.span
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.9, duration: 1 }}
-              className="italic font-normal text-gold-shimmer"
-            >
-              Calw
-            </motion.span>
+            {"gold".split("").map((c, i) => (
+              <motion.span
+                key={`b${i}`}
+                initial={{ opacity: 0, y: 60, rotate: -8 }}
+                animate={{ opacity: 1, y: 0, rotate: 0 }}
+                transition={{
+                  delay: 0.3 + (i + 5) * 0.05,
+                  duration: 1,
+                  ease: [0.22, 1, 0.36, 1] as const,
+                }}
+                className="inline-block italic font-normal text-gold-shimmer"
+              >
+                {c}
+              </motion.span>
+            ))}
           </h1>
 
           <motion.p
@@ -202,26 +220,38 @@ export function Hero() {
           </motion.div>
         </div>
 
+        {/* Decorative right column — ornate swash instead of duplicate logo */}
         <motion.div
           initial={{ opacity: 0, scale: 0.85 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.7, duration: 1.2, ease: [0.22, 1, 0.36, 1] as const }}
-          className="lg:col-span-4 flex justify-center lg:justify-end"
+          className="lg:col-span-4 hidden lg:flex justify-end items-center"
+          aria-hidden
         >
           <div className="relative">
-            {/* Golden orbit ring */}
             <motion.div
               animate={{ rotate: 360 }}
-              transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
-              className="absolute -inset-6 rounded-full border border-dashed border-[var(--gold-400)]/60"
+              transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
+              className="absolute -inset-6 rounded-full border border-dashed border-[var(--gold-400)]/50"
             />
             <motion.div
               animate={{ rotate: -360 }}
-              transition={{ duration: 80, repeat: Infinity, ease: "linear" }}
-              className="absolute -inset-14 rounded-full border border-dashed border-[var(--gold-400)]/30"
+              transition={{ duration: 120, repeat: Infinity, ease: "linear" }}
+              className="absolute -inset-14 rounded-full border border-dashed border-[var(--gold-400)]/25"
             />
-            <div className="relative h-[260px] w-[260px] md:h-[340px] md:w-[340px] rounded-full bg-[radial-gradient(circle,var(--cream-50),var(--cream-200)_80%)] shadow-[var(--shadow-gold)] flex items-center justify-center p-8 border border-[var(--gold-400)]/40">
-              <LogoMark className="!h-auto !w-[85%]" priority />
+            <div className="relative h-[260px] w-[260px] md:h-[320px] md:w-[320px] rounded-full bg-[radial-gradient(circle,rgba(255,240,210,0.9),rgba(237,225,198,0.4)_80%)] shadow-[var(--shadow-gold)] flex items-center justify-center border border-[var(--gold-400)]/30">
+              <svg viewBox="0 0 200 200" className="w-[72%] h-[72%] text-[var(--gold-500)]" aria-hidden>
+                <g fill="none" stroke="currentColor" strokeWidth="1.1" strokeLinecap="round">
+                  <path d="M100 20 Q60 55 60 100 Q60 145 100 180" />
+                  <path d="M100 20 Q140 55 140 100 Q140 145 100 180" />
+                  <path d="M30 100 Q100 70 170 100 Q100 130 30 100" />
+                </g>
+                <circle cx="100" cy="100" r="5" fill="currentColor" />
+                <circle cx="100" cy="30" r="2.5" fill="currentColor" />
+                <circle cx="100" cy="170" r="2.5" fill="currentColor" />
+                <circle cx="32" cy="100" r="2.5" fill="currentColor" />
+                <circle cx="168" cy="100" r="2.5" fill="currentColor" />
+              </svg>
             </div>
           </div>
         </motion.div>
