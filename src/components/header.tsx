@@ -114,8 +114,11 @@ export function Header() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="lg:hidden fixed inset-0 top-20 bg-paper grain"
+            style={{ backgroundColor: "var(--cream-50)" }}
+            className="lg:hidden fixed inset-x-0 top-20 bottom-0 z-40 overflow-y-auto"
           >
+            {/* Soft decorative gold glow — stays beneath the opaque background */}
+            <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_50%_30%,rgba(212,165,89,0.18),transparent_60%)]" />
             <motion.nav
               initial="hidden"
               animate="show"
@@ -123,7 +126,7 @@ export function Header() {
                 hidden: {},
                 show: { transition: { staggerChildren: 0.06 } },
               }}
-              className="flex flex-col items-center justify-center gap-7 mt-16 px-6"
+              className="relative flex flex-col items-center justify-center gap-7 min-h-full py-14 px-6"
             >
               {nav.map((item) => (
                 <motion.div
