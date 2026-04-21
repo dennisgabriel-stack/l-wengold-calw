@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { SmartImage } from "@/components/smart-image";
 import { tiles } from "@/lib/images";
 import {
@@ -11,6 +11,18 @@ import {
   AntiqueArt,
   GemArt,
 } from "./tile-art";
+
+function useIsDesktop() {
+  const [isDesktop, setIsDesktop] = useState(false);
+  useEffect(() => {
+    const mql = window.matchMedia("(min-width: 768px)");
+    setIsDesktop(mql.matches);
+    const handler = (e: MediaQueryListEvent) => setIsDesktop(e.matches);
+    mql.addEventListener("change", handler);
+    return () => mql.removeEventListener("change", handler);
+  }, []);
+  return isDesktop;
+}
 
 type Tile = {
   title: string;
@@ -23,6 +35,7 @@ type Tile = {
 
 export function ParallaxTiles() {
   const ref = useRef<HTMLDivElement>(null);
+  const isDesktop = useIsDesktop();
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start end", "end start"],
@@ -91,7 +104,7 @@ export function ParallaxTiles() {
           {items.map((t) => (
             <motion.article
               key={t.title}
-              style={{ y: t.y }}
+              style={isDesktop ? { y: t.y } : undefined}
               whileHover={{ scale: 1.015 }}
               transition={{ type: "spring", stiffness: 220, damping: 22 }}
               className={`relative overflow-hidden rounded-3xl aspect-[5/4] ${t.colspan} ${t.bg} group isolate`}
