@@ -13,22 +13,20 @@ export function Hero() {
     offset: ["start start", "end start"],
   });
 
-  const y1 = useTransform(scrollYProgress, [0, 1], [0, 200]);
-  const y2 = useTransform(scrollYProgress, [0, 1], [0, -100]);
+  const y1 = useTransform(scrollYProgress, [0, 1], [0, 150]);
   const opacity = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 1.1]);
+  const scale = useTransform(scrollYProgress, [0, 1], [1, 1.08]);
 
   return (
     <section
       ref={ref}
-      className="relative min-h-[100svh] flex items-center justify-center overflow-hidden px-5 sm:px-8 pt-24"
+      className="relative min-h-[100svh] flex items-center justify-center overflow-hidden px-5 sm:px-8 pt-24 pb-20"
     >
       {/* Warm gradient backdrop */}
       <motion.div style={{ scale }} className="absolute inset-0 -z-10">
         <div className="absolute inset-0 bg-gradient-to-b from-[var(--cream-50)] via-[var(--cream-100)] to-[var(--cream-200)]" />
-        {/* Radial gold glow */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(212,165,89,0.22),transparent_60%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_85%_80%,rgba(47,74,53,0.08),transparent_60%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_30%,rgba(212,165,89,0.22),transparent_65%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_85%_90%,rgba(47,74,53,0.08),transparent_60%)]" />
 
         {/* Pine tree silhouettes (bottom) - evoke Schwarzwald */}
         <svg
@@ -70,9 +68,10 @@ export function Hero() {
         {[
           { x: "12%", y: "22%", s: 8, d: 0 },
           { x: "82%", y: "18%", s: 6, d: 1 },
-          { x: "22%", y: "72%", s: 10, d: 2 },
+          { x: "18%", y: "72%", s: 10, d: 2 },
           { x: "88%", y: "68%", s: 7, d: 1.5 },
-          { x: "52%", y: "14%", s: 5, d: 0.7 },
+          { x: "52%", y: "8%", s: 5, d: 0.7 },
+          { x: "70%", y: "85%", s: 7, d: 2.3 },
         ].map((s, i) => (
           <motion.span
             key={i}
@@ -98,162 +97,118 @@ export function Hero() {
         ))}
       </div>
 
-      {/* Huge faint ornament */}
-      <motion.div
-        style={{ y: y2 }}
-        className="absolute -right-48 top-20 opacity-[0.1] -z-5 pointer-events-none"
-        aria-hidden
-      >
-        <LogoMark className="!h-[620px] !w-auto" />
-      </motion.div>
-
       <motion.div
         style={{ y: y1, opacity }}
-        className="relative z-10 mx-auto max-w-7xl w-full grid lg:grid-cols-12 gap-12 items-center"
+        className="relative z-10 mx-auto max-w-5xl w-full flex flex-col items-center text-center"
       >
-        <div className="lg:col-span-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20, scale: 0.92 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] as const }}
-            className="mb-8"
-          >
-            <LogoMark
-              priority
-              className="!h-28 md:!h-36 !w-auto"
-            />
-          </motion.div>
-
-          <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, delay: 0.2 }}
-            className="flex items-center gap-3 text-xs md:text-sm uppercase tracking-[0.35em] text-[var(--gold-600)]"
-          >
-            <span className="h-px w-10 bg-[var(--gold-500)]" />
-            Seit Jahren Ihr Partner in Calw
-          </motion.p>
-
-          <h1 className="mt-7 font-display text-[clamp(3rem,8vw,7.5rem)] leading-[0.95] tracking-tight text-[var(--espresso-900)]">
-            {"Löwen".split("").map((c, i) => (
-              <motion.span
-                key={`a${i}`}
-                initial={{ opacity: 0, y: 60, rotate: -8 }}
-                animate={{ opacity: 1, y: 0, rotate: 0 }}
-                transition={{
-                  delay: 0.3 + i * 0.05,
-                  duration: 1,
-                  ease: [0.22, 1, 0.36, 1] as const,
-                }}
-                className="inline-block"
-              >
-                {c}
-              </motion.span>
-            ))}
-            {"gold".split("").map((c, i) => (
-              <motion.span
-                key={`b${i}`}
-                initial={{ opacity: 0, y: 60, rotate: -8 }}
-                animate={{ opacity: 1, y: 0, rotate: 0 }}
-                transition={{
-                  delay: 0.3 + (i + 5) * 0.05,
-                  duration: 1,
-                  ease: [0.22, 1, 0.36, 1] as const,
-                }}
-                className="inline-block italic font-normal text-gold-shimmer"
-              >
-                {c}
-              </motion.span>
-            ))}
-          </h1>
-
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.1, duration: 0.9 }}
-            className="mt-8 text-lg md:text-2xl max-w-2xl text-[var(--espresso-700)]/90 leading-relaxed font-light"
-          >
-            Ihr Experte für den Ankauf von{" "}
-            <em className="italic text-[var(--gold-600)] not-italic font-medium">
-              Gold, Schmuck
-            </em>{" "}
-            und{" "}
-            <em className="italic text-[var(--gold-600)] not-italic font-medium">
-              Antiquitäten
-            </em>{" "}
-            — mitten im Schwarzwald.
-          </motion.p>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.35, duration: 0.9 }}
-            className="mt-10 flex flex-wrap items-center gap-4"
-          >
-            <MagneticLink href="/leistungen" withArrow>
-              Jetzt entdecken
-            </MagneticLink>
-            <MagneticLink href="/aktionstage" variant="ghost" withArrow>
-              Aktionstage
-            </MagneticLink>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1.6, duration: 1 }}
-            className="mt-16 flex items-center gap-8 flex-wrap"
-          >
-            {[
-              { label: "Gold · Silber · Platin · Palladium" },
-              { label: "Kostenlose Schätzung" },
-              { label: "Sofortige Barauszahlung" },
-            ].map((t) => (
-              <div
-                key={t.label}
-                className="flex items-center gap-2 text-sm text-[var(--espresso-700)]/80"
-              >
-                <span className="w-1.5 h-1.5 rounded-full bg-[var(--gold-500)]" />
-                {t.label}
-              </div>
-            ))}
-          </motion.div>
-        </div>
-
-        {/* Decorative right column — ornate swash instead of duplicate logo */}
+        {/* Logo — first, centered, large */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.85 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.7, duration: 1.2, ease: [0.22, 1, 0.36, 1] as const }}
-          className="lg:col-span-4 hidden lg:flex justify-end items-center"
-          aria-hidden
+          initial={{ opacity: 0, y: 24, scale: 0.88 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{ duration: 1.1, delay: 0.1, ease: [0.22, 1, 0.36, 1] as const }}
+          className="mb-10 md:mb-14"
         >
-          <div className="relative">
-            <motion.div
-              animate={{ rotate: 360 }}
-              transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
-              className="absolute -inset-6 rounded-full border border-dashed border-[var(--gold-400)]/50"
-            />
-            <motion.div
-              animate={{ rotate: -360 }}
-              transition={{ duration: 120, repeat: Infinity, ease: "linear" }}
-              className="absolute -inset-14 rounded-full border border-dashed border-[var(--gold-400)]/25"
-            />
-            <div className="relative h-[260px] w-[260px] md:h-[320px] md:w-[320px] rounded-full bg-[radial-gradient(circle,rgba(255,240,210,0.9),rgba(237,225,198,0.4)_80%)] shadow-[var(--shadow-gold)] flex items-center justify-center border border-[var(--gold-400)]/30">
-              <svg viewBox="0 0 200 200" className="w-[72%] h-[72%] text-[var(--gold-500)]" aria-hidden>
-                <g fill="none" stroke="currentColor" strokeWidth="1.1" strokeLinecap="round">
-                  <path d="M100 20 Q60 55 60 100 Q60 145 100 180" />
-                  <path d="M100 20 Q140 55 140 100 Q140 145 100 180" />
-                  <path d="M30 100 Q100 70 170 100 Q100 130 30 100" />
-                </g>
-                <circle cx="100" cy="100" r="5" fill="currentColor" />
-                <circle cx="100" cy="30" r="2.5" fill="currentColor" />
-                <circle cx="100" cy="170" r="2.5" fill="currentColor" />
-                <circle cx="32" cy="100" r="2.5" fill="currentColor" />
-                <circle cx="168" cy="100" r="2.5" fill="currentColor" />
-              </svg>
+          <LogoMark
+            priority
+            className="!h-44 md:!h-64 lg:!h-72 !w-auto drop-shadow-[0_10px_40px_rgba(184,137,74,0.25)]"
+          />
+        </motion.div>
+
+        {/* Headline */}
+        <h1 className="font-display text-[clamp(3.5rem,10vw,8.5rem)] leading-[0.95] tracking-tight text-[var(--espresso-900)]">
+          {"Löwen".split("").map((c, i) => (
+            <motion.span
+              key={`a${i}`}
+              initial={{ opacity: 0, y: 60, rotate: -8 }}
+              animate={{ opacity: 1, y: 0, rotate: 0 }}
+              transition={{
+                delay: 0.5 + i * 0.05,
+                duration: 1,
+                ease: [0.22, 1, 0.36, 1] as const,
+              }}
+              className="inline-block"
+            >
+              {c}
+            </motion.span>
+          ))}
+          {"gold".split("").map((c, i) => (
+            <motion.span
+              key={`b${i}`}
+              initial={{ opacity: 0, y: 60, rotate: -8 }}
+              animate={{ opacity: 1, y: 0, rotate: 0 }}
+              transition={{
+                delay: 0.5 + (i + 5) * 0.05,
+                duration: 1,
+                ease: [0.22, 1, 0.36, 1] as const,
+              }}
+              className="inline-block italic font-normal text-gold-shimmer"
+            >
+              {c}
+            </motion.span>
+          ))}
+        </h1>
+
+        {/* Eyebrow — now BELOW the headline */}
+        <motion.p
+          initial={{ opacity: 0, y: 14 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, delay: 1.1 }}
+          className="mt-8 flex items-center gap-3 text-xs md:text-sm uppercase tracking-[0.35em] text-[var(--gold-600)]"
+        >
+          <span className="h-px w-10 bg-[var(--gold-500)]" />
+          Seit Jahren Ihr Partner in Calw
+          <span className="h-px w-10 bg-[var(--gold-500)]" />
+        </motion.p>
+
+        {/* Subline */}
+        <motion.p
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.25, duration: 0.9 }}
+          className="mt-8 text-lg md:text-2xl max-w-3xl text-[var(--espresso-700)]/90 leading-relaxed font-light"
+        >
+          Ihr Experte für den Ankauf von{" "}
+          <em className="not-italic text-[var(--gold-600)] font-medium">Gold, Schmuck</em>{" "}
+          und{" "}
+          <em className="not-italic text-[var(--gold-600)] font-medium">Antiquitäten</em>{" "}
+          — mitten im Schwarzwald.
+        </motion.p>
+
+        {/* CTAs */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.45, duration: 0.9 }}
+          className="mt-10 flex flex-wrap items-center justify-center gap-4"
+        >
+          <MagneticLink href="/leistungen" withArrow>
+            Jetzt entdecken
+          </MagneticLink>
+          <MagneticLink href="/aktionstage" variant="ghost" withArrow>
+            Aktionstage
+          </MagneticLink>
+        </motion.div>
+
+        {/* Trust tags */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.7, duration: 1 }}
+          className="mt-14 flex items-center justify-center gap-x-8 gap-y-3 flex-wrap"
+        >
+          {[
+            "Gold · Silber · Platin · Palladium",
+            "Kostenlose Schätzung",
+            "Sofortige Barauszahlung",
+          ].map((t) => (
+            <div
+              key={t}
+              className="flex items-center gap-2 text-sm text-[var(--espresso-700)]/80"
+            >
+              <span className="w-1.5 h-1.5 rounded-full bg-[var(--gold-500)]" />
+              {t}
             </div>
-          </div>
+          ))}
         </motion.div>
       </motion.div>
 
@@ -261,7 +216,7 @@ export function Hero() {
       <motion.div
         animate={{ y: [0, 8, 0] }}
         transition={{ duration: 2.2, repeat: Infinity }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 text-[var(--espresso-700)]/60 flex flex-col items-center gap-2 text-xs uppercase tracking-[0.3em]"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-[var(--espresso-700)]/60 flex flex-col items-center gap-2 text-xs uppercase tracking-[0.3em]"
       >
         Scrollen
         <ChevronDown size={14} />
