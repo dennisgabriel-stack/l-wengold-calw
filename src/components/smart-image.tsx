@@ -12,8 +12,10 @@ type SmartImageProps = Omit<ImageProps, "onError"> & {
 };
 
 /**
- * Drop-in replacement for next/image that gracefully falls back to
- * a provided element if the remote source fails to load.
+ * Drop-in replacement for next/image that gracefully falls back when
+ * the remote source fails. If no explicit fallback is given, it
+ * renders nothing (letting the parent's background show through) —
+ * avoids the ugly default broken-image glyph.
  */
 export function SmartImage({
   fallback,
@@ -24,7 +26,8 @@ export function SmartImage({
 }: SmartImageProps) {
   const [failed, setFailed] = useState(false);
 
-  if (failed && fallback) {
+  if (failed) {
+    if (!fallback) return null;
     return (
       <div className={cn("relative h-full w-full", wrapperClassName)}>
         {fallback}
