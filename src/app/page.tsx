@@ -11,6 +11,9 @@ import { FloatingTag } from "@/components/floating-tag";
 import { contact, services } from "@/lib/data";
 import { ParallaxTiles } from "./_sections/parallax-tiles";
 import { CounterStrip } from "./_sections/counter-strip";
+import { SingleEarringSection } from "./_sections/single-earring";
+import { SmartImage } from "@/components/smart-image";
+import { collage } from "@/lib/images";
 
 export default function HomePage() {
   return (
@@ -70,157 +73,17 @@ export default function HomePage() {
           </div>
 
           <Reveal delay={0.2} className="lg:col-span-5 relative" y={40}>
-            <div className="relative aspect-[4/5] rounded-[28px] overflow-hidden border border-[var(--border)] shadow-[var(--shadow-soft)]">
-              <div className="absolute inset-0 bg-gradient-to-br from-[var(--cream-100)] via-[var(--cream-200)] to-[var(--cream-300)]" />
-              <svg viewBox="0 0 400 500" className="absolute inset-0 w-full h-full">
-                <defs>
-                  <radialGradient id="sun" cx="50%" cy="50%" r="50%">
-                    <stop offset="0%" stopColor="var(--gold-200)" />
-                    <stop offset="60%" stopColor="var(--gold-400)" />
-                    <stop offset="100%" stopColor="var(--gold-600)" />
-                  </radialGradient>
-                  <linearGradient id="bar-gold" x1="0" x2="1">
-                    <stop offset="0%" stopColor="var(--gold-600)" />
-                    <stop offset="50%" stopColor="var(--gold-200)" />
-                    <stop offset="100%" stopColor="var(--gold-600)" />
-                  </linearGradient>
-                  <linearGradient id="bar-silver" x1="0" x2="1">
-                    <stop offset="0%" stopColor="#8d8d8d" />
-                    <stop offset="50%" stopColor="#e8e8e8" />
-                    <stop offset="100%" stopColor="#8d8d8d" />
-                  </linearGradient>
-                </defs>
-
-                <circle cx="270" cy="160" r="110" fill="url(#sun)" />
-                <circle
-                  cx="270"
-                  cy="160"
-                  r="110"
-                  fill="none"
-                  stroke="var(--gold-600)"
-                  strokeWidth="1"
-                  opacity="0.4"
-                />
-
-                <g transform="translate(60 180) rotate(-8)">
-                  <rect
-                    x="0"
-                    y="0"
-                    width="180"
-                    height="58"
-                    rx="4"
-                    fill="url(#bar-gold)"
-                    stroke="var(--gold-700)"
-                  />
-                  <text
-                    x="90"
-                    y="30"
-                    textAnchor="middle"
-                    fontSize="10"
-                    fill="var(--espresso-900)"
-                    fontFamily="var(--font-inter)"
-                    fontWeight="700"
-                    letterSpacing="2"
-                  >
-                    FEINGOLD 999.9
-                  </text>
-                  <text
-                    x="90"
-                    y="44"
-                    textAnchor="middle"
-                    fontSize="7"
-                    fill="var(--espresso-800)"
-                    opacity="0.75"
-                  >
-                    500 g · D18429
-                  </text>
-                </g>
-
-                <g transform="translate(90 360) rotate(6)">
-                  <rect
-                    x="0"
-                    y="0"
-                    width="140"
-                    height="44"
-                    rx="3"
-                    fill="url(#bar-silver)"
-                    stroke="#5e5e5e"
-                  />
-                  <text
-                    x="70"
-                    y="22"
-                    textAnchor="middle"
-                    fontSize="9"
-                    fill="#202020"
-                    fontWeight="700"
-                    letterSpacing="2"
-                  >
-                    FEINSILBER
-                  </text>
-                  <text x="70" y="34" textAnchor="middle" fontSize="6" fill="#303030">
-                    999.0 · 250 g
-                  </text>
-                </g>
-
-                <g transform="translate(260 330)">
-                  <circle
-                    cx="0"
-                    cy="0"
-                    r="36"
-                    fill="url(#bar-gold)"
-                    stroke="var(--gold-700)"
-                  />
-                  <circle
-                    cx="0"
-                    cy="0"
-                    r="30"
-                    fill="none"
-                    stroke="var(--gold-700)"
-                    strokeWidth="0.5"
-                    opacity="0.6"
-                  />
-                  <text
-                    x="0"
-                    y="3"
-                    textAnchor="middle"
-                    fontSize="7"
-                    fill="var(--espresso-900)"
-                    fontWeight="700"
-                    letterSpacing="1"
-                  >
-                    KRÜGER
-                  </text>
-                </g>
-                <g transform="translate(320 390)">
-                  <circle cx="0" cy="0" r="28" fill="url(#bar-silver)" stroke="#5e5e5e" />
-                  <text
-                    x="0"
-                    y="2"
-                    textAnchor="middle"
-                    fontSize="6"
-                    fill="#1a1a1a"
-                    fontWeight="700"
-                  >
-                    MAPLE
-                  </text>
-                </g>
-
-                {[
-                  [50, 60],
-                  [360, 80],
-                  [180, 100],
-                  [350, 240],
-                  [40, 320],
-                  [200, 440],
-                ].map(([x, y], i) => (
-                  <g key={i} transform={`translate(${x} ${y})`} opacity="0.8">
-                    <path
-                      d="M0 -8 L2 -2 L8 0 L2 2 L0 8 L-2 2 L-8 0 L-2 -2 Z"
-                      fill="var(--gold-400)"
-                    />
-                  </g>
-                ))}
-              </svg>
+            <div className="relative aspect-[4/5] rounded-[28px] overflow-hidden border border-[var(--border)] shadow-[var(--shadow-soft)] bg-gradient-to-br from-[var(--gold-400)] via-[var(--gold-500)] to-[var(--walnut-800)]">
+              <SmartImage
+                src={collage.src}
+                alt={collage.alt}
+                fill
+                sizes="(max-width: 1024px) 100vw, 40vw"
+                className="object-cover"
+                priority
+              />
+              {/* Warm overlay to blend with page */}
+              <div className="absolute inset-0 bg-gradient-to-t from-[var(--espresso-900)]/40 via-transparent to-[var(--gold-400)]/10 pointer-events-none" />
 
               <div className="absolute inset-0 p-5 flex flex-col justify-between">
                 <div className="flex justify-end">
@@ -315,7 +178,7 @@ export default function HomePage() {
               {
                 icon: BadgeCheck,
                 title: "Antiquitäten",
-                items: "Ölgemälde · Teppiche · Zinn · Briefmarken · Möbel",
+                items: "Ölgemälde · Teppiche · Zinn · Schreib- & Nähmaschinen · Briefmarken · Möbel",
               },
             ].map((tile, i) => (
               <Reveal
@@ -338,6 +201,8 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      <SingleEarringSection />
 
       <section className="relative py-28 md:py-36 px-5 sm:px-8 overflow-hidden">
         <div className="absolute inset-0 bg-[var(--espresso-900)]" />

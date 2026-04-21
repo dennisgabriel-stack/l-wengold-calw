@@ -44,10 +44,21 @@ export default function UeberUnsPage() {
           <div className="lg:col-span-7 space-y-10">
             <Reveal>
               <h2 className="font-display text-4xl md:text-5xl leading-tight text-[var(--espresso-800)]">
-                Eine erste Adresse für Schmuckliebhaber und Sammler.
+                Wir schätzen und kaufen{" "}
+                <em className="italic text-[var(--gold-600)]">Gold, Silber, Schmuck</em>{" "}
+                und vieles mehr.
               </h2>
             </Reveal>
-            <Reveal delay={0.1}>
+            <Reveal delay={0.08}>
+              <p className="text-lg leading-relaxed text-[var(--espresso-700)]/90">
+                Löwengold Calw verfügt über ein Team erfahrener Experten mit
+                einem breiten Fachwissen im Schätzen und Ankaufen von Gold-
+                und Silberschmuck sowie Antiquitäten. Wir sind stolz darauf,
+                unseren Kunden hochwertige Produkte und erstklassigen Service
+                zu bieten. Besuchen Sie uns.
+              </p>
+            </Reveal>
+            <Reveal delay={0.12}>
               <p className="text-lg leading-relaxed text-[var(--espresso-700)]/90">
                 Mit jahrelanger Erfahrung im Schätzen, Ankaufen und Handel von
                 Gold- und Silberschmuck sowie Antiquitäten ist Löwengold Calw die
@@ -56,7 +67,7 @@ export default function UeberUnsPage() {
                 jedem Schmuckstück wider.
               </p>
             </Reveal>
-            <Reveal delay={0.15}>
+            <Reveal delay={0.16}>
               <p className="text-lg leading-relaxed text-[var(--espresso-700)]/90">
                 Vertrauen Sie auf unser Fachwissen und lassen Sie sich von unserem
                 Service überzeugen. Besuchen Sie uns noch heute und erleben Sie

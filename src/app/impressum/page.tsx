@@ -18,13 +18,13 @@ export default function ImpressumPage() {
       />
 
       <section className="relative py-16 md:py-20 px-5 sm:px-8">
-        <div className="mx-auto max-w-3xl prose prose-stone">
+        <div className="mx-auto max-w-3xl space-y-12">
           <Reveal>
             <h2 className="font-display text-3xl text-[var(--espresso-800)] mb-4">
               Anbieter
             </h2>
             <p className="text-[var(--espresso-700)] leading-relaxed">
-              <strong>{contact.name}</strong>
+              <strong>{contact.owner}</strong>
               <br />
               {contact.street}
               <br />
@@ -32,12 +32,18 @@ export default function ImpressumPage() {
             </p>
           </Reveal>
 
-          <Reveal delay={0.1} className="mt-10">
+          <Reveal delay={0.05}>
             <h2 className="font-display text-3xl text-[var(--espresso-800)] mb-4">
               Kontakt
             </h2>
             <p className="text-[var(--espresso-700)] leading-relaxed">
-              Telefon: {contact.phone}
+              Telefon:{" "}
+              <a
+                href={`tel:${contact.phoneRaw}`}
+                className="link-underline text-[var(--gold-600)]"
+              >
+                {contact.phone}
+              </a>
               <br />
               E-Mail:{" "}
               <a
@@ -49,23 +55,35 @@ export default function ImpressumPage() {
             </p>
           </Reveal>
 
-          <Reveal delay={0.15} className="mt-10">
+          <Reveal delay={0.1}>
             <h2 className="font-display text-3xl text-[var(--espresso-800)] mb-4">
-              Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV
+              Name des Unternehmens
             </h2>
             <p className="text-[var(--espresso-700)] leading-relaxed">
-              Inhaber/in von Löwengold Calw
-              <br />
-              {contact.street}, {contact.zip} {contact.city}
-            </p>
-            <p className="mt-4 text-sm text-[var(--espresso-700)]/70">
-              Hinweis: Bitte ergänzen Sie hier den vollständigen Namen und die
-              Rechtsform (Einzelunternehmen, GbR, GmbH …) sowie ggf. USt-ID,
-              Handelsregisternummer und zuständige Aufsichtsbehörde.
+              {contact.name}, {contact.owner}
             </p>
           </Reveal>
 
-          <Reveal delay={0.2} className="mt-10">
+          <Reveal delay={0.12}>
+            <h2 className="font-display text-3xl text-[var(--espresso-800)] mb-4">
+              Eingetragener Firmensitz
+            </h2>
+            <p className="text-[var(--espresso-700)] leading-relaxed">
+              {contact.street}, {contact.zip} {contact.city}
+            </p>
+          </Reveal>
+
+          <Reveal delay={0.14}>
+            <h2 className="font-display text-3xl text-[var(--espresso-800)] mb-4">
+              Umsatzsteuer-ID
+            </h2>
+            <p className="text-[var(--espresso-700)] leading-relaxed">
+              Umsatzsteuer-Identifikationsnummer gemäß § 27 a
+              Umsatzsteuergesetz: <em className="text-[var(--espresso-700)]/70">wird auf Anfrage mitgeteilt.</em>
+            </p>
+          </Reveal>
+
+          <Reveal delay={0.16}>
             <h2 className="font-display text-3xl text-[var(--espresso-800)] mb-4">
               Streitbeilegung
             </h2>
@@ -86,7 +104,7 @@ export default function ImpressumPage() {
             </p>
           </Reveal>
 
-          <Reveal delay={0.25} className="mt-10">
+          <Reveal delay={0.2}>
             <h2 className="font-display text-3xl text-[var(--espresso-800)] mb-4">
               Haftung für Inhalte
             </h2>
@@ -95,21 +113,58 @@ export default function ImpressumPage() {
               Inhalte auf diesen Seiten nach den allgemeinen Gesetzen
               verantwortlich. Nach §§ 8 bis 10 TMG sind wir als
               Diensteanbieter jedoch nicht verpflichtet, übermittelte oder
-              gespeicherte fremde Informationen zu überwachen oder nach Umständen
-              zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.
+              gespeicherte fremde Informationen zu überwachen oder nach
+              Umständen zu forschen, die auf eine rechtswidrige Tätigkeit
+              hinweisen. Verpflichtungen zur Entfernung oder Sperrung der
+              Nutzung von Informationen nach den allgemeinen Gesetzen bleiben
+              hiervon unberührt. Eine diesbezügliche Haftung ist jedoch erst
+              ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung
+              möglich. Bei Bekanntwerden von entsprechenden Rechtsverletzungen
+              werden wir diese Inhalte umgehend entfernen.
             </p>
           </Reveal>
 
-          <Reveal delay={0.3} className="mt-10">
+          <Reveal delay={0.24}>
+            <h2 className="font-display text-3xl text-[var(--espresso-800)] mb-4">
+              Haftung für Links
+            </h2>
+            <p className="text-[var(--espresso-700)] leading-relaxed">
+              Unser Angebot enthält Links zu externen Websites Dritter, auf
+              deren Inhalte wir keinen Einfluss haben. Deshalb können wir für
+              diese fremden Inhalte auch keine Gewähr übernehmen. Für die
+              Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter
+              oder Betreiber der Seiten verantwortlich. Die verlinkten Seiten
+              wurden zum Zeitpunkt der Verlinkung auf mögliche Rechtsverstöße
+              überprüft. Rechtswidrige Inhalte waren zum Zeitpunkt der
+              Verlinkung nicht erkennbar. Eine permanente inhaltliche Kontrolle
+              der verlinkten Seiten ist jedoch ohne konkrete Anhaltspunkte
+              einer Rechtsverletzung nicht zumutbar. Bei Bekanntwerden von
+              Rechtsverletzungen werden wir derartige Links umgehend entfernen.
+            </p>
+          </Reveal>
+
+          <Reveal delay={0.28}>
             <h2 className="font-display text-3xl text-[var(--espresso-800)] mb-4">
               Urheberrecht
             </h2>
             <p className="text-[var(--espresso-700)] leading-relaxed">
               Die durch die Seitenbetreiber erstellten Inhalte und Werke auf
-              diesen Seiten unterliegen dem deutschen Urheberrecht.
-              Vervielfältigungen, Bearbeitungen, Verbreitung und jede Art der
+              diesen Seiten unterliegen dem deutschen Urheberrecht. Die
+              Vervielfältigung, Bearbeitung, Verbreitung und jede Art der
               Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der
               schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers.
+              Downloads und Kopien dieser Seite sind nur für den privaten,
+              nicht kommerziellen Gebrauch gestattet. Soweit die Inhalte auf
+              dieser Seite nicht vom Betreiber erstellt wurden, werden die
+              Urheberrechte Dritter beachtet. Insbesondere werden Inhalte
+              Dritter als solche gekennzeichnet. Sollten Sie trotzdem auf eine
+              Urheberrechtsverletzung aufmerksam werden, bitten wir um einen
+              entsprechenden Hinweis. Bei Bekanntwerden von
+              Rechtsverletzungen werden wir derartige Inhalte umgehend
+              entfernen.
+            </p>
+            <p className="mt-4 text-sm text-[var(--espresso-700)]/60">
+              Quelle: eRecht24
             </p>
           </Reveal>
         </div>
