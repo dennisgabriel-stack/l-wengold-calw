@@ -117,7 +117,7 @@ export function Hero() {
         >
           <LogoMark
             priority
-            className="!h-64 md:!h-[22rem] lg:!h-[28rem] !w-auto drop-shadow-[0_15px_50px_rgba(184,137,74,0.3)]"
+            className="!h-72 md:!h-[26rem] lg:!h-[32rem] !w-auto drop-shadow-[0_20px_55px_rgba(184,137,74,0.3)]"
           />
         </motion.div>
 
@@ -129,7 +129,7 @@ export function Hero() {
             hidden: {},
             show: { transition: { staggerChildren: 0.1, delayChildren: 0.4 } },
           }}
-          className="mb-10 md:mb-12 flex items-center justify-center gap-2 md:gap-3 w-full max-w-md md:max-w-none mx-auto"
+          className="mb-10 md:mb-12 flex items-center justify-center gap-3 sm:gap-3 md:gap-4"
         >
           {heroIcons.map(({ Icon, label }) => (
             <motion.li
@@ -144,7 +144,9 @@ export function Hero() {
                 },
               }}
               whileHover={{ y: -4, scale: 1.04 }}
-              className="group relative flex items-center gap-1.5 md:gap-2.5 px-2.5 md:px-5 py-2 md:py-2.5 rounded-full bg-[var(--cream-50)]/85 backdrop-blur border border-[var(--gold-400)]/40 shadow-[0_6px_20px_-10px_rgba(184,137,74,0.35)] shrink-0"
+              title={label}
+              aria-label={label}
+              className="group relative flex items-center gap-0 sm:gap-2.5 px-0 sm:px-5 py-0 sm:py-2.5 rounded-full bg-[var(--cream-50)]/85 backdrop-blur border border-[var(--gold-400)]/40 shadow-[0_6px_20px_-10px_rgba(184,137,74,0.35)] shrink-0"
             >
               <motion.span
                 animate={{ y: [0, -3, 0] }}
@@ -154,12 +156,12 @@ export function Hero() {
                   repeatType: "mirror",
                   ease: "easeInOut",
                 }}
-                className="inline-flex h-6 w-6 md:h-8 md:w-8 items-center justify-center rounded-full bg-[var(--gold-400)]/15 text-[var(--gold-600)] group-hover:bg-[var(--gold-400)]/25 transition-colors shrink-0"
+                className="inline-flex h-12 w-12 sm:h-8 sm:w-8 items-center justify-center rounded-full bg-[var(--gold-400)]/15 text-[var(--gold-600)] group-hover:bg-[var(--gold-400)]/25 transition-colors shrink-0"
               >
-                <Icon size={12} className="md:hidden" />
-                <Icon size={15} className="hidden md:block" />
+                <Icon size={18} className="sm:hidden" />
+                <Icon size={15} className="hidden sm:block" />
               </motion.span>
-              <span className="text-[9px] md:text-[13px] uppercase tracking-[0.12em] md:tracking-[0.2em] text-[var(--espresso-800)] whitespace-nowrap">
+              <span className="hidden sm:inline text-[13px] uppercase tracking-[0.2em] text-[var(--espresso-800)] whitespace-nowrap">
                 {label}
               </span>
               <span className="absolute inset-0 rounded-full ring-0 ring-[var(--gold-400)]/0 group-hover:ring-2 group-hover:ring-[var(--gold-400)]/40 transition-all pointer-events-none" />
