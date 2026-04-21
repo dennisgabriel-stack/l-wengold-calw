@@ -110,7 +110,7 @@ export function Hero() {
         >
           <LogoMark
             priority
-            className="!h-44 md:!h-64 lg:!h-72 !w-auto drop-shadow-[0_10px_40px_rgba(184,137,74,0.25)]"
+            className="!h-64 md:!h-[22rem] lg:!h-[28rem] !w-auto drop-shadow-[0_15px_50px_rgba(184,137,74,0.3)]"
           />
         </motion.div>
 
