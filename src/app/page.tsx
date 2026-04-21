@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Sparkles, Coins, Clock, MapPin } from "lucide-react";
+import { Clock, MapPin } from "lucide-react";
 import { Hero } from "./_sections/hero";
 import { MagneticLink } from "@/components/button";
 import { Reveal, Stagger } from "@/components/reveal";
@@ -7,14 +7,13 @@ import { SectionHeading } from "@/components/section-heading";
 import { Marquee } from "@/components/marquee";
 import { Divider, Ornament } from "@/components/ornaments";
 import { ServiceCard } from "@/components/service-card";
-import { FloatingTag } from "@/components/floating-tag";
 import { contact, services } from "@/lib/data";
 import { ParallaxTiles } from "./_sections/parallax-tiles";
 import { SingleEarringSection } from "./_sections/single-earring";
 import { EditorialQuote } from "./_sections/editorial-quote";
 import { WhatWeBuy } from "./_sections/what-we-buy";
 import { SmartImage } from "@/components/smart-image";
-import { collage, aktionstageBanner } from "@/lib/images";
+import { aktionstageBanner } from "@/lib/images";
 
 export default function HomePage() {
   return (
@@ -40,65 +39,36 @@ export default function HomePage() {
         />
       </section>
 
-      <section className="relative py-28 md:py-40 px-5 sm:px-8">
-        <div className="mx-auto max-w-7xl grid gap-16 lg:grid-cols-12 items-start">
-          <div className="lg:col-span-7">
-            <SectionHeading
-              eyebrow="Willkommen in Calw"
-              title={
-                <>
-                  Eine Welt voller glänzender
-                  <br />
-                  <span className="text-gold-shimmer">Schätze</span> und zeitloser
-                  Eleganz.
-                </>
-              }
-              lead={
-                <>
-                  Löwengold Calw ist Ihre erste Wahl und zuverlässiger Partner für
-                  den Ankauf von Edelmetallen wie Gold und Silber aller Art sowie
-                  Antiquitäten. Verkaufen Sie uns Ihren Schmuck, Ihre Münzen und
-                  vieles mehr – bei sofortiger Barauszahlung.
-                </>
-              }
-            />
+      <section className="relative py-24 md:py-32 px-5 sm:px-8">
+        <div className="mx-auto max-w-4xl text-center">
+          <SectionHeading
+            align="center"
+            eyebrow="Willkommen in Calw"
+            title={
+              <>
+                Eine Welt voller glänzender
+                <br />
+                <span className="text-gold-shimmer">Schätze</span> und zeitloser
+                Eleganz.
+              </>
+            }
+            lead={
+              <>
+                Löwengold Calw ist Ihre erste Wahl und zuverlässiger Partner für
+                den Ankauf von Edelmetallen wie Gold und Silber aller Art sowie
+                Antiquitäten. Verkaufen Sie uns Ihren Schmuck, Ihre Münzen und
+                vieles mehr – bei sofortiger Barauszahlung.
+              </>
+            }
+          />
 
-            <Reveal delay={0.25} className="mt-10 flex flex-wrap gap-4">
-              <MagneticLink href="/leistungen" withArrow>
-                Jetzt entdecken
-              </MagneticLink>
-              <MagneticLink href="/kontakt" variant="outline" withArrow>
-                Termin vereinbaren
-              </MagneticLink>
-            </Reveal>
-          </div>
-
-          <Reveal delay={0.2} className="lg:col-span-5 relative" y={40}>
-            <div className="relative aspect-[4/5] rounded-[28px] overflow-hidden border border-[var(--border)] shadow-[var(--shadow-soft)] bg-gradient-to-br from-[var(--gold-400)] via-[var(--gold-500)] to-[var(--walnut-800)]">
-              <SmartImage
-                src={collage.src}
-                alt={collage.alt}
-                fill
-                sizes="(max-width: 1024px) 100vw, 40vw"
-                className="object-cover"
-                priority
-              />
-              {/* Warm overlay to blend with page */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[var(--espresso-900)]/40 via-transparent to-[var(--gold-400)]/10 pointer-events-none" />
-
-              <div className="absolute inset-0 p-5 flex flex-col justify-between">
-                <div className="flex justify-end">
-                  <FloatingTag delay={0.6}>
-                    <Sparkles size={12} /> 999er Feingold
-                  </FloatingTag>
-                </div>
-                <div>
-                  <FloatingTag delay={1.2}>
-                    <Coins size={12} /> Krügerrand, Maple Leaf, Vreneli…
-                  </FloatingTag>
-                </div>
-              </div>
-            </div>
+          <Reveal delay={0.25} className="mt-10 flex flex-wrap justify-center gap-4">
+            <MagneticLink href="/leistungen" withArrow>
+              Jetzt entdecken
+            </MagneticLink>
+            <MagneticLink href="/kontakt" variant="outline" withArrow>
+              Termin vereinbaren
+            </MagneticLink>
           </Reveal>
         </div>
       </section>
