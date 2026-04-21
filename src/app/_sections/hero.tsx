@@ -2,15 +2,15 @@
 
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import { Award, ChevronDown, Coins, Gem, HandshakeIcon } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import { MagneticLink } from "@/components/button";
 import { LogoMark } from "@/components/logo";
 
-const heroIcons = [
-  { Icon: Award, label: "25+ Jahre" },
-  { Icon: Gem, label: "Edelmetalle" },
-  { Icon: Coins, label: "16 Münzen" },
-  { Icon: HandshakeIcon, label: "Sofort bar" },
+const heroStats = [
+  { n: "25+", label: "Jahre Erfahrung" },
+  { n: "9", label: "Feingehalte Gold" },
+  { n: "100%", label: "Transparent & fair" },
+  { n: "16", label: "Münzsorten im Ankauf" },
 ];
 
 export function Hero() {
@@ -127,50 +127,35 @@ export function Hero() {
           />
         </motion.div>
 
-        {/* 4 animated icon chips between logo and headline */}
+        {/* Stats — minimal numeric row directly below the logo */}
         <motion.ul
           initial="hidden"
           animate="show"
           variants={{
             hidden: {},
-            show: { transition: { staggerChildren: 0.1, delayChildren: 0.4 } },
+            show: { transition: { staggerChildren: 0.12, delayChildren: 0.35 } },
           }}
-          className="mb-10 md:mb-12 flex items-center justify-center gap-3 sm:gap-3 md:gap-4"
+          className="mb-12 md:mb-14 w-full max-w-3xl grid grid-cols-4 gap-0 divide-x divide-[var(--gold-400)]/25"
         >
-          {heroIcons.map(({ Icon, label }) => (
+          {heroStats.map((s) => (
             <motion.li
-              key={label}
+              key={s.label}
               variants={{
-                hidden: { opacity: 0, y: 18, scale: 0.9 },
+                hidden: { opacity: 0, y: 18 },
                 show: {
                   opacity: 1,
                   y: 0,
-                  scale: 1,
-                  transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] as const },
+                  transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] as const },
                 },
               }}
-              whileHover={{ y: -4, scale: 1.04 }}
-              title={label}
-              aria-label={label}
-              className="group relative flex items-center gap-0 sm:gap-2.5 px-0 sm:px-5 py-0 sm:py-2.5 rounded-full bg-[var(--cream-50)]/85 backdrop-blur border border-[var(--gold-400)]/40 shadow-[0_6px_20px_-10px_rgba(184,137,74,0.35)] shrink-0"
+              className="flex flex-col items-center gap-1 px-2 sm:px-4"
             >
-              <motion.span
-                animate={{ y: [0, -3, 0] }}
-                transition={{
-                  duration: 3.5,
-                  repeat: Infinity,
-                  repeatType: "mirror",
-                  ease: "easeInOut",
-                }}
-                className="inline-flex h-12 w-12 sm:h-8 sm:w-8 items-center justify-center rounded-full bg-[var(--gold-400)]/15 text-[var(--gold-600)] group-hover:bg-[var(--gold-400)]/25 transition-colors shrink-0"
-              >
-                <Icon size={18} className="sm:hidden" />
-                <Icon size={15} className="hidden sm:block" />
-              </motion.span>
-              <span className="hidden sm:inline text-[13px] uppercase tracking-[0.2em] text-[var(--espresso-800)] whitespace-nowrap">
-                {label}
+              <span className="font-display text-3xl sm:text-4xl md:text-5xl leading-none text-gold-rich">
+                {s.n}
               </span>
-              <span className="absolute inset-0 rounded-full ring-0 ring-[var(--gold-400)]/0 group-hover:ring-2 group-hover:ring-[var(--gold-400)]/40 transition-all pointer-events-none" />
+              <span className="text-[10px] sm:text-[11px] md:text-xs uppercase tracking-[0.18em] md:tracking-[0.22em] text-[var(--espresso-700)]/75 text-center leading-tight">
+                {s.label}
+              </span>
             </motion.li>
           ))}
         </motion.ul>
