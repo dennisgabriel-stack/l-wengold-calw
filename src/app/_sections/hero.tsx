@@ -7,10 +7,10 @@ import { MagneticLink } from "@/components/button";
 import { LogoMark } from "@/components/logo";
 
 const heroIcons = [
-  { Icon: Award, label: "25+ Jahre Erfahrung" },
-  { Icon: Gem, label: "Gold · Silber · Edelsteine" },
-  { Icon: Coins, label: "16 Münzsorten" },
-  { Icon: HandshakeIcon, label: "Sofort in bar" },
+  { Icon: Award, label: "25+ Jahre" },
+  { Icon: Gem, label: "Edelmetalle" },
+  { Icon: Coins, label: "16 Münzen" },
+  { Icon: HandshakeIcon, label: "Sofort bar" },
 ];
 
 export function Hero() {
@@ -129,7 +129,7 @@ export function Hero() {
             hidden: {},
             show: { transition: { staggerChildren: 0.1, delayChildren: 0.4 } },
           }}
-          className="mb-10 md:mb-12 flex flex-wrap items-center justify-center gap-3 md:gap-4"
+          className="mb-10 md:mb-12 flex items-center justify-center gap-2 md:gap-3 w-full max-w-md md:max-w-none mx-auto"
         >
           {heroIcons.map(({ Icon, label }) => (
             <motion.li
@@ -144,7 +144,7 @@ export function Hero() {
                 },
               }}
               whileHover={{ y: -4, scale: 1.04 }}
-              className="group relative flex items-center gap-2.5 px-4 md:px-5 py-2.5 rounded-full bg-[var(--cream-50)]/85 backdrop-blur border border-[var(--gold-400)]/40 shadow-[0_6px_20px_-10px_rgba(184,137,74,0.35)]"
+              className="group relative flex items-center gap-1.5 md:gap-2.5 px-2.5 md:px-5 py-2 md:py-2.5 rounded-full bg-[var(--cream-50)]/85 backdrop-blur border border-[var(--gold-400)]/40 shadow-[0_6px_20px_-10px_rgba(184,137,74,0.35)] shrink-0"
             >
               <motion.span
                 animate={{ y: [0, -3, 0] }}
@@ -154,11 +154,12 @@ export function Hero() {
                   repeatType: "mirror",
                   ease: "easeInOut",
                 }}
-                className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-[var(--gold-400)]/15 text-[var(--gold-600)] group-hover:bg-[var(--gold-400)]/25 transition-colors"
+                className="inline-flex h-6 w-6 md:h-8 md:w-8 items-center justify-center rounded-full bg-[var(--gold-400)]/15 text-[var(--gold-600)] group-hover:bg-[var(--gold-400)]/25 transition-colors shrink-0"
               >
-                <Icon size={15} />
+                <Icon size={12} className="md:hidden" />
+                <Icon size={15} className="hidden md:block" />
               </motion.span>
-              <span className="text-[11px] md:text-[13px] uppercase tracking-[0.2em] text-[var(--espresso-800)]">
+              <span className="text-[9px] md:text-[13px] uppercase tracking-[0.12em] md:tracking-[0.2em] text-[var(--espresso-800)] whitespace-nowrap">
                 {label}
               </span>
               <span className="absolute inset-0 rounded-full ring-0 ring-[var(--gold-400)]/0 group-hover:ring-2 group-hover:ring-[var(--gold-400)]/40 transition-all pointer-events-none" />
