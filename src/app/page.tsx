@@ -10,7 +10,6 @@ import { ServiceCard } from "@/components/service-card";
 import { FloatingTag } from "@/components/floating-tag";
 import { contact, services } from "@/lib/data";
 import { ParallaxTiles } from "./_sections/parallax-tiles";
-import { CounterStrip } from "./_sections/counter-strip";
 import { SingleEarringSection } from "./_sections/single-earring";
 import { SmartImage } from "@/components/smart-image";
 import { collage } from "@/lib/images";
@@ -20,11 +19,9 @@ export default function HomePage() {
     <>
       <Hero />
 
-      <CounterStrip />
-
       <section
         aria-hidden
-        className="relative border-y border-[var(--border)] bg-[var(--cream-100)]/70 mt-12"
+        className="relative border-y border-[var(--border)] bg-[var(--cream-100)]/70"
       >
         <Marquee
           items={[
