@@ -446,7 +446,7 @@ body.bg-paper::before {
   position: absolute;
   inset-inline: 0;
   top: 0;
-  height: 420px;
+  height: 280px;
   z-index: -10;
   pointer-events: none;
   background: linear-gradient(
@@ -470,7 +470,7 @@ body.bg-paper::before {
   position: absolute;
   inset-inline: 0;
   bottom: 0;
-  height: 420px;
+  height: 280px;
   z-index: -10;
   pointer-events: none;
   background: linear-gradient(
