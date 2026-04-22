@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import { PageHeader } from "@/components/page-header";
-import { Reveal } from "@/components/reveal";
+import { Reveal, Stagger } from "@/components/reveal";
 import { MagneticLink } from "@/components/button";
 import { Divider } from "@/components/ornaments";
 import { LogoMark } from "@/components/logo";
+import { ValueCard } from "@/components/value-card";
 import { BadgeCheck, Heart, HandCoins, Sparkles } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -124,19 +125,40 @@ export default function UeberUnsPage() {
         </div>
       </section>
 
-      {/* Values */}
-      <section className="relative py-20 md:py-28 px-5 sm:px-8 bg-[var(--cream-100)] border-y border-[var(--border)]">
-        <div className="mx-auto max-w-7xl">
-          <Reveal>
-            <p className="text-xs uppercase tracking-[0.3em] text-[var(--gold-600)] mb-5">
-              ✦ Unser Versprechen
-            </p>
-            <h2 className="font-display text-4xl md:text-6xl text-[var(--espresso-800)] leading-[1.05] max-w-3xl">
-              Vier Werte, die wir jeden Tag leben.
-            </h2>
-          </Reveal>
+      {/* Values — ivory plaques on deep ink panel with 3D tilt + animated icons */}
+      <section className="relative py-24 md:py-32 px-5 sm:px-8 overflow-hidden isolate">
+        <div className="absolute inset-0 -z-10 bg-[var(--ink-900)]" />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-[#0a0604] via-[#120b06] to-[#0a0604]" />
+        <div className="absolute inset-x-0 top-0 h-2/3 -z-10 bg-[radial-gradient(ellipse_at_50%_0%,rgba(212,177,119,0.22),transparent_60%)]" />
+        <div className="absolute inset-x-0 bottom-0 h-1/2 -z-10 bg-[radial-gradient(ellipse_at_15%_95%,rgba(192,136,104,0.2),transparent_55%)]" />
+        <div className="absolute inset-y-0 right-0 w-1/2 -z-10 bg-[radial-gradient(ellipse_at_95%_50%,rgba(37,52,40,0.22),transparent_60%)]" />
+        <div
+          className="absolute inset-0 -z-10 opacity-[0.07] pointer-events-none"
+          style={{
+            backgroundImage:
+              "repeating-linear-gradient(45deg, rgba(212,177,119,0.6) 0 1px, transparent 1px 120px)",
+          }}
+          aria-hidden
+        />
+        <div className="absolute inset-x-0 top-0 h-28 -z-10 bg-gradient-to-b from-[var(--cream-50)] to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-28 -z-10 bg-gradient-to-t from-[var(--cream-50)] to-transparent" />
 
-          <div className="mt-16 grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="mx-auto max-w-7xl">
+          <div className="text-center">
+            <Reveal>
+              <p className="text-xs uppercase tracking-[0.3em] text-[var(--gold-400)] mb-6">
+                <span className="mr-2">✦</span>Unser Versprechen
+              </p>
+            </Reveal>
+            <Reveal delay={0.08}>
+              <h2 className="font-display text-4xl md:text-6xl leading-[1.05] text-[var(--cream-100)] max-w-3xl mx-auto">
+                Vier Werte, die wir{" "}
+                <span className="text-gold-shimmer italic">jeden Tag leben</span>.
+              </h2>
+            </Reveal>
+          </div>
+
+          <Stagger className="mt-16 grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               {
                 icon: Heart,
@@ -159,21 +181,15 @@ export default function UeberUnsPage() {
                 body: "Ihre Werte und Ihre Privatsphäre bleiben bei uns geschützt.",
               },
             ].map((v, i) => (
-              <Reveal
+              <ValueCard
                 key={v.title}
-                delay={i * 0.08}
-                className="p-8 rounded-3xl bg-[var(--cream-50)] border border-[var(--border)] hover:border-[var(--gold-400)] transition-colors"
-              >
-                <v.icon className="text-[var(--gold-600)]" size={28} />
-                <h3 className="mt-5 font-display text-2xl text-[var(--espresso-800)]">
-                  {v.title}
-                </h3>
-                <p className="mt-3 text-[var(--espresso-700)]/85 text-[15px] leading-relaxed">
-                  {v.body}
-                </p>
-              </Reveal>
+                index={i}
+                title={v.title}
+                body={v.body}
+                Icon={v.icon}
+              />
             ))}
-          </div>
+          </Stagger>
         </div>
       </section>
 

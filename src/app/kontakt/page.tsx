@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { PageHeader } from "@/components/page-header";
 import { Reveal } from "@/components/reveal";
+import { ContactCard } from "@/components/contact-card";
 import { contact } from "@/lib/data";
 import { Mail, MapPin, Phone, Clock } from "lucide-react";
 import { ContactForm } from "./_form";
@@ -25,64 +26,76 @@ export default function KontaktPage() {
         freuen uns auf Ihren Besuch in der Altburger Straße 13."
       />
 
-      <section className="relative py-16 md:py-24 px-5 sm:px-8">
-        <div className="mx-auto max-w-7xl grid gap-12 lg:grid-cols-12">
-          {/* Info column */}
-          <Reveal className="lg:col-span-5 space-y-8">
-            <InfoBlock
-              icon={<Phone className="text-[var(--gold-600)]" size={20} />}
-              label="Telefon"
-            >
+      <section className="relative py-20 md:py-28 px-5 sm:px-8 overflow-hidden isolate">
+        {/* Dark ink backdrop with gold+rose ambient glow */}
+        <div className="absolute inset-0 -z-10 bg-[var(--ink-900)]" />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-[#0a0604] via-[#120b06] to-[#0a0604]" />
+        <div className="absolute inset-x-0 top-0 h-2/3 -z-10 bg-[radial-gradient(ellipse_at_50%_0%,rgba(212,177,119,0.22),transparent_60%)]" />
+        <div className="absolute inset-x-0 bottom-0 h-1/2 -z-10 bg-[radial-gradient(ellipse_at_15%_95%,rgba(192,136,104,0.2),transparent_55%)]" />
+        <div className="absolute inset-y-0 right-0 w-1/2 -z-10 bg-[radial-gradient(ellipse_at_95%_50%,rgba(37,52,40,0.22),transparent_60%)]" />
+        <div
+          className="absolute inset-0 -z-10 opacity-[0.07] pointer-events-none"
+          style={{
+            backgroundImage:
+              "repeating-linear-gradient(45deg, rgba(212,177,119,0.6) 0 1px, transparent 1px 120px)",
+          }}
+          aria-hidden
+        />
+        <div className="absolute inset-x-0 top-0 h-28 -z-10 bg-gradient-to-b from-[var(--cream-50)] to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-28 -z-10 bg-gradient-to-t from-[var(--cream-50)] to-transparent" />
+
+        <div className="mx-auto max-w-7xl grid gap-8 lg:grid-cols-12">
+          {/* Info column — luxurious 3D ivory plaques */}
+          <div className="lg:col-span-5 space-y-5">
+            <ContactCard index={0} label="Telefon" Icon={Phone}>
               <a
                 href={`tel:${contact.phoneRaw}`}
-                className="font-display text-3xl text-[var(--espresso-800)] hover:text-[var(--gold-600)]"
+                className="font-display text-3xl text-[var(--espresso-900)] hover:text-[var(--gold-700)] transition-colors"
               >
                 {contact.phone}
               </a>
-            </InfoBlock>
+            </ContactCard>
 
-            <InfoBlock
-              icon={<Mail className="text-[var(--gold-600)]" size={20} />}
-              label="E-Mail"
-            >
+            <ContactCard index={1} label="E-Mail" Icon={Mail}>
               <a
                 href={`mailto:${contact.emailRaw}`}
-                className="font-display text-2xl md:text-3xl text-[var(--espresso-800)] hover:text-[var(--gold-600)] break-all"
+                className="font-display text-2xl md:text-3xl text-[var(--espresso-900)] hover:text-[var(--gold-700)] break-all transition-colors"
               >
                 {contact.email}
               </a>
-            </InfoBlock>
+            </ContactCard>
 
-            <InfoBlock
-              icon={<MapPin className="text-[var(--gold-600)]" size={20} />}
-              label="Adresse"
-            >
+            <ContactCard index={2} label="Adresse" Icon={MapPin}>
               <a
                 href="https://maps.google.com/?q=Altburger+Str.+13+75365+Calw"
                 target="_blank"
                 rel="noreferrer"
-                className="font-display text-3xl text-[var(--espresso-800)] hover:text-[var(--gold-600)] block"
+                className="font-display text-3xl text-[var(--espresso-900)] hover:text-[var(--gold-700)] block transition-colors"
               >
                 {contact.street}
                 <br />
                 {contact.zip} {contact.city}
               </a>
-            </InfoBlock>
+            </ContactCard>
 
-            <InfoBlock
-              icon={<Clock className="text-[var(--gold-600)]" size={20} />}
+            <ContactCard
+              index={3}
               label="Öffnungszeiten · An Aktionstagen"
+              Icon={Clock}
             >
-              <ul className="space-y-2 tabular-nums text-[var(--espresso-800)]">
+              <ul className="space-y-2.5 tabular-nums text-[var(--espresso-900)]">
                 {contact.hours.map((h) => (
-                  <li key={h.day} className="flex justify-between gap-8">
-                    <span>{h.day}</span>
+                  <li
+                    key={h.day}
+                    className="flex justify-between gap-8 border-b border-[var(--gold-500)]/20 pb-2 last:border-0"
+                  >
+                    <span className="font-medium">{h.day}</span>
                     <span className="text-[var(--espresso-700)]">{h.time}</span>
                   </li>
                 ))}
               </ul>
-            </InfoBlock>
-          </Reveal>
+            </ContactCard>
+          </div>
 
           {/* Form column */}
           <Reveal delay={0.1} className="lg:col-span-7">
@@ -130,27 +143,5 @@ export default function KontaktPage() {
         </div>
       </section>
     </>
-  );
-}
-
-function InfoBlock({
-  icon,
-  label,
-  children,
-}: {
-  icon: React.ReactNode;
-  label: string;
-  children: React.ReactNode;
-}) {
-  return (
-    <div className="p-7 rounded-2xl bg-[var(--cream-50)] border border-[var(--border)] hover:border-[var(--gold-400)] transition-colors">
-      <div className="flex items-center gap-3">
-        {icon}
-        <p className="text-xs uppercase tracking-[0.3em] text-[var(--gold-600)]">
-          {label}
-        </p>
-      </div>
-      <div className="mt-4">{children}</div>
-    </div>
   );
 }
