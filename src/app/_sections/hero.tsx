@@ -20,9 +20,12 @@ export function Hero() {
     offset: ["start start", "end start"],
   });
 
-  const y1 = useTransform(scrollYProgress, [0, 1], [0, 150]);
-  const opacity = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 1.08]);
+  // Very gentle parallax — keep the hero fully readable for most of
+  // the scroll. Only the tail end (80–100 %) blurs the content out so
+  // a small finger scroll never makes it disappear.
+  const y1 = useTransform(scrollYProgress, [0, 1], [0, 60]);
+  const opacity = useTransform(scrollYProgress, [0.85, 1], [1, 0]);
+  const scale = useTransform(scrollYProgress, [0, 1], [1, 1.04]);
 
   return (
     <section
