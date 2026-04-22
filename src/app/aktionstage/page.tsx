@@ -2,8 +2,17 @@ import type { Metadata } from "next";
 import { PageHeader } from "@/components/page-header";
 import { Reveal, Stagger } from "@/components/reveal";
 import { MagneticLink } from "@/components/button";
-import { Divider } from "@/components/ornaments";
-import { Calendar, CheckCircle2, Clock, Mail, Phone } from "lucide-react";
+import { ValueCard } from "@/components/value-card";
+import {
+  Calendar,
+  CheckCircle2,
+  Clock,
+  DoorOpen,
+  HandCoins,
+  Mail,
+  Phone,
+  ScanSearch,
+} from "lucide-react";
 import { contact } from "@/lib/data";
 import { AktionstageCards } from "./_cards";
 
@@ -60,55 +69,63 @@ export default function AktionstagePage() {
         </div>
       </section>
 
-      {/* How it works */}
-      <section className="relative py-20 md:py-28 px-5 sm:px-8">
-        <div className="mx-auto max-w-7xl">
-          <Reveal>
-            <p className="text-xs uppercase tracking-[0.3em] text-[var(--gold-600)] mb-5">
-              ✦ So läuft ein Aktionstag ab
-            </p>
-            <h2 className="font-display text-4xl md:text-6xl text-[var(--espresso-800)] leading-[1.05] max-w-3xl">
-              In drei Schritten zur{" "}
-              <em className="italic text-[var(--gold-600)]">Barauszahlung</em>.
-            </h2>
-          </Reveal>
+      {/* How it works — dark ink panel with 3 luxury 3D plaques */}
+      <section className="relative py-24 md:py-32 px-5 sm:px-8 overflow-hidden isolate">
+        <div className="absolute inset-0 -z-10 bg-[var(--ink-900)]" />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-[#0a0604] via-[#120b06] to-[#0a0604]" />
+        <div className="absolute inset-x-0 top-0 h-2/3 -z-10 bg-[radial-gradient(ellipse_at_50%_0%,rgba(212,177,119,0.22),transparent_60%)]" />
+        <div className="absolute inset-x-0 bottom-0 h-1/2 -z-10 bg-[radial-gradient(ellipse_at_85%_95%,rgba(192,136,104,0.22),transparent_55%)]" />
+        <div className="absolute inset-y-0 left-0 w-1/2 -z-10 bg-[radial-gradient(ellipse_at_5%_50%,rgba(37,52,40,0.22),transparent_60%)]" />
+        <div
+          className="absolute inset-0 -z-10 opacity-[0.07] pointer-events-none"
+          style={{
+            backgroundImage:
+              "repeating-linear-gradient(45deg, rgba(212,177,119,0.6) 0 1px, transparent 1px 120px)",
+          }}
+          aria-hidden
+        />
+        <div className="panel-fade-top" aria-hidden />
+        <div className="panel-fade-bottom" aria-hidden />
 
-          <Divider className="my-14" />
+        <div className="mx-auto max-w-7xl">
+          <div className="text-center mb-16">
+            <Reveal>
+              <p className="text-xs uppercase tracking-[0.3em] text-[var(--gold-400)] mb-6">
+                <span className="mr-2">✦</span>So läuft ein Aktionstag ab
+              </p>
+            </Reveal>
+            <Reveal delay={0.08}>
+              <h2 className="font-display text-4xl md:text-6xl leading-[1.05] text-[var(--cream-100)] max-w-3xl mx-auto">
+                In drei Schritten zur{" "}
+                <span className="text-gold-shimmer italic">Barauszahlung</span>.
+              </h2>
+            </Reveal>
+            <Reveal delay={0.16}>
+              <p className="mx-auto mt-6 max-w-xl text-base md:text-lg text-[var(--cream-200)]/80 leading-relaxed">
+                Ohne Termin. Ohne Verpflichtung. Mit voller Transparenz.
+              </p>
+            </Reveal>
+          </div>
 
           <Stagger className="grid gap-6 md:grid-cols-3">
-            {[
-              {
-                n: 1,
-                title: "Vorbeikommen",
-                body: "Bringen Sie Ihre Schmuckstücke, Münzen, Barren, Antiquitäten und – falls vorhanden – Zertifikate oder Originalverpackungen mit.",
-              },
-              {
-                n: 2,
-                title: "Kostenlos bewerten",
-                body: "Wir analysieren Feingehalt, Gewicht und Marktwert. Sie erfahren sofort, was Ihre Stücke wirklich wert sind.",
-              },
-              {
-                n: 3,
-                title: "Sofort in bar",
-                body: "Entscheiden Sie sich für den Verkauf, zahlen wir den vereinbarten Preis direkt und transparent in bar aus.",
-              },
-            ].map((s) => (
-              <Reveal
-                key={s.n}
-                className="relative p-8 rounded-3xl bg-[var(--cream-50)] border border-[var(--border)] hover:shadow-[var(--shadow-gold)] transition-shadow"
-              >
-                <span className="absolute top-6 right-6 font-display text-6xl text-[var(--gold-400)]/25 leading-none">
-                  0{s.n}
-                </span>
-                <h3 className="font-display text-3xl text-[var(--espresso-800)]">
-                  {s.title}
-                </h3>
-                <div className="gold-divider my-4" />
-                <p className="text-[var(--espresso-700)]/85 leading-relaxed">
-                  {s.body}
-                </p>
-              </Reveal>
-            ))}
+            <ValueCard
+              index={0}
+              icon={<DoorOpen size={24} strokeWidth={1.8} />}
+              title="Vorbeikommen"
+              body="Bringen Sie Ihre Schmuckstücke, Münzen, Barren, Antiquitäten und – falls vorhanden – Zertifikate oder Originalverpackungen mit."
+            />
+            <ValueCard
+              index={1}
+              icon={<ScanSearch size={24} strokeWidth={1.8} />}
+              title="Kostenlos bewerten"
+              body="Wir analysieren Feingehalt, Gewicht und Marktwert. Sie erfahren sofort, was Ihre Stücke wirklich wert sind."
+            />
+            <ValueCard
+              index={2}
+              icon={<HandCoins size={24} strokeWidth={1.8} />}
+              title="Sofort in bar"
+              body="Entscheiden Sie sich für den Verkauf, zahlen wir den vereinbarten Preis direkt und transparent in bar aus."
+            />
           </Stagger>
         </div>
       </section>
