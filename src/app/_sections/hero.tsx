@@ -135,7 +135,7 @@ export function Hero() {
             hidden: {},
             show: { transition: { staggerChildren: 0.12, delayChildren: 0.35 } },
           }}
-          className="mb-12 md:mb-14 w-full max-w-3xl grid grid-cols-4 gap-0 divide-x divide-[var(--gold-400)]/25"
+          className="mb-12 md:mb-14 w-full max-w-3xl grid grid-cols-4 gap-0 divide-x divide-[var(--gold-400)]/20"
         >
           {heroStats.map((s) => (
             <motion.li
@@ -148,12 +148,12 @@ export function Hero() {
                   transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] as const },
                 },
               }}
-              className="flex flex-col items-center gap-1 px-2 sm:px-4"
+              className="flex flex-col items-center gap-2 px-1.5 sm:px-3 md:px-4"
             >
-              <span className="font-display text-3xl sm:text-4xl md:text-5xl leading-none text-gold-rich">
+              <span className="font-display text-2xl sm:text-4xl md:text-5xl leading-none text-gold-rich">
                 {s.n}
               </span>
-              <span className="text-[10px] sm:text-[11px] md:text-xs uppercase tracking-[0.18em] md:tracking-[0.22em] text-[var(--espresso-700)]/75 text-center leading-tight">
+              <span className="text-[8px] sm:text-[10px] md:text-xs uppercase tracking-[0.08em] sm:tracking-[0.14em] md:tracking-[0.2em] text-[var(--espresso-700)]/70 text-center leading-[1.25] max-w-[12ch]">
                 {s.label}
               </span>
             </motion.li>
