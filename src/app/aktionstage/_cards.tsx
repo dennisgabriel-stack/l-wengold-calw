@@ -319,12 +319,13 @@ function SmallCard({ event, index }: { event: EventData; index: number }) {
         onMouseMove={handleMove}
         onMouseLeave={handleLeave}
         className="relative h-full p-6 rounded-[22px] overflow-hidden
-          bg-gradient-to-br from-[rgba(251,245,231,0.06)] via-[rgba(251,245,231,0.1)] to-[rgba(251,245,231,0.04)]
-          backdrop-blur border border-[var(--gold-400)]/25
+          bg-[rgba(13,9,5,0.6)] backdrop-blur-md
+          border border-[var(--gold-400)]/40
+          shadow-[0_25px_60px_-20px_rgba(13,9,5,0.65),0_8px_20px_-8px_rgba(184,137,74,0.2)]
           transition-all duration-500 ease-out
           [transform:perspective(1100px)_rotateX(var(--rx,0))_rotateY(var(--ry,0))]
-          group-hover:border-[var(--gold-400)]/55 group-hover:bg-[rgba(251,245,231,0.12)]
-          group-hover:shadow-[0_30px_60px_-20px_rgba(184,137,74,0.4)]"
+          group-hover:border-[var(--gold-400)]/70 group-hover:bg-[rgba(13,9,5,0.72)]
+          group-hover:shadow-[0_35px_70px_-20px_rgba(13,9,5,0.75),0_12px_28px_-8px_rgba(184,137,74,0.45)]"
       >
         {/* Cursor glare */}
         <span

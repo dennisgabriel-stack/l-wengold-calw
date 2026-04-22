@@ -48,12 +48,14 @@ export default function AktionstagePage() {
         <div className="relative mx-auto max-w-6xl">
           <AktionstageCards />
 
-          <Reveal delay={0.3} className="mt-10">
-            <p className="text-center text-xs md:text-sm text-[var(--cream-200)]/55 max-w-2xl mx-auto">
-              Die Termine stehen unter dem Vorbehalt von Änderungen. Bitte rufen
-              Sie uns vorab an oder schreiben Sie eine kurze E-Mail, damit wir
-              Sie aktuell informieren können.
-            </p>
+          <Reveal delay={0.3} className="mt-12">
+            <div className="mx-auto max-w-2xl rounded-2xl bg-[rgba(13,9,5,0.55)] backdrop-blur-md border border-[var(--gold-400)]/25 px-6 py-4">
+              <p className="text-center text-xs md:text-sm text-[var(--cream-100)]/80 leading-relaxed">
+                Die Termine stehen unter dem Vorbehalt von Änderungen. Bitte
+                rufen Sie uns vorab an oder schreiben Sie eine kurze E-Mail,
+                damit wir Sie aktuell informieren können.
+              </p>
+            </div>
           </Reveal>
         </div>
       </section>
