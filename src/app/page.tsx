@@ -72,18 +72,19 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="relative py-28 md:py-36 px-5 sm:px-8 overflow-hidden isolate">
+      <section className="relative py-28 md:py-40 px-5 sm:px-8 overflow-hidden isolate">
         {/* Luxurious layered background for the 3 service cards */}
         <div className="absolute inset-0 -z-10 bg-[var(--ink-900)]" />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-[#0a0604] via-[#120b06] to-[#0a0604]" />
         {/* Ambient photo-light (top) */}
-        <div className="absolute inset-x-0 top-0 h-1/2 -z-10 bg-[radial-gradient(ellipse_at_50%_0%,rgba(212,177,119,0.22),transparent_60%)]" />
+        <div className="absolute inset-x-0 top-0 h-2/3 -z-10 bg-[radial-gradient(ellipse_at_50%_0%,rgba(212,177,119,0.28),transparent_60%)]" />
         {/* Rose bloom (bottom left) */}
-        <div className="absolute inset-x-0 bottom-0 h-1/2 -z-10 bg-[radial-gradient(ellipse_at_15%_95%,rgba(192,136,104,0.18),transparent_55%)]" />
+        <div className="absolute inset-x-0 bottom-0 h-1/2 -z-10 bg-[radial-gradient(ellipse_at_15%_95%,rgba(192,136,104,0.22),transparent_55%)]" />
         {/* Forest shadow (right) */}
-        <div className="absolute inset-y-0 right-0 w-1/2 -z-10 bg-[radial-gradient(ellipse_at_95%_50%,rgba(37,52,40,0.22),transparent_60%)]" />
+        <div className="absolute inset-y-0 right-0 w-1/2 -z-10 bg-[radial-gradient(ellipse_at_95%_50%,rgba(37,52,40,0.25),transparent_60%)]" />
         {/* Faint diagonal gold lines */}
         <div
-          className="absolute inset-0 -z-10 opacity-[0.06] pointer-events-none"
+          className="absolute inset-0 -z-10 opacity-[0.07] pointer-events-none"
           style={{
             backgroundImage:
               "repeating-linear-gradient(45deg, rgba(212,177,119,0.6) 0 1px, transparent 1px 120px)",
