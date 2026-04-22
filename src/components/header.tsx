@@ -141,11 +141,13 @@ export function Header() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.45 }}
-            className="lg:hidden fixed inset-x-0 top-20 bottom-0 z-[55] overflow-y-auto"
+            /* Solid ink fills the full scroll height — stops page
+               content bleeding through when the menu scrolls. */
+            style={{ backgroundColor: "var(--ink-900)" }}
+            className="lg:hidden fixed inset-x-0 top-20 bottom-0 z-[55] overflow-y-auto overscroll-contain"
           >
-            {/* Deep layered backdrop */}
-            <div className="absolute inset-0 -z-10 bg-[var(--ink-900)]" />
-            <div className="absolute inset-0 -z-10 bg-gradient-to-b from-[#09060a] via-[#0f0a05] to-[#06040a]" />
+            {/* Deep gradient overlay on top of the solid base */}
+            <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-[#09060a] via-[#0f0a05] to-[#06040a]" />
             <motion.div
               animate={{
                 opacity: [0.45, 0.75, 0.5],
