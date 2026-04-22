@@ -24,6 +24,8 @@ export function EditorialQuote() {
       ref={ref}
       className="relative isolate overflow-hidden bg-ink text-[var(--cream-100)]"
     >
+      <div className="panel-fade-top" aria-hidden />
+      <div className="panel-fade-bottom" aria-hidden />
       <div className="relative mx-auto grid lg:grid-cols-12 min-h-[520px]">
         {/* Photo */}
         <motion.div
