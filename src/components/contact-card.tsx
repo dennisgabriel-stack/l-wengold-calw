@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import { MouseEvent, ReactNode, useRef } from "react";
-import { type LucideIcon } from "lucide-react";
 
 /**
  * Ivory plaque with a 3D cursor tilt and a gently animating gold
@@ -12,12 +11,12 @@ import { type LucideIcon } from "lucide-react";
 export function ContactCard({
   index,
   label,
-  Icon,
+  icon,
   children,
 }: {
   index: number;
   label: string;
-  Icon: LucideIcon;
+  icon: ReactNode;
   children: ReactNode;
 }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -108,9 +107,9 @@ export function ContactCard({
               repeat: Infinity,
               ease: "easeInOut",
             }}
-            className="relative inline-flex items-center justify-center h-10 w-10 rounded-xl bg-gradient-to-br from-[var(--gold-300)]/25 via-[var(--gold-400)]/35 to-[var(--gold-600)]/20 border border-[var(--gold-500)]/35 shadow-[0_6px_14px_-4px_rgba(184,137,74,0.5)] shrink-0"
+            className="relative inline-flex items-center justify-center h-10 w-10 rounded-xl bg-gradient-to-br from-[var(--gold-300)]/25 via-[var(--gold-400)]/35 to-[var(--gold-600)]/20 border border-[var(--gold-500)]/35 shadow-[0_6px_14px_-4px_rgba(184,137,74,0.5)] shrink-0 text-[var(--gold-700)]"
           >
-            <Icon className="text-[var(--gold-700)]" size={18} strokeWidth={1.9} />
+            {icon}
             {/* Shimmer dot */}
             <motion.span
               animate={{ opacity: [0.3, 0.9, 0.3], scale: [0.8, 1.2, 0.8] }}

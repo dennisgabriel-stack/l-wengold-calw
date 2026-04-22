@@ -161,22 +161,22 @@ export default function UeberUnsPage() {
           <Stagger className="mt-16 grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               {
-                icon: Heart,
+                icon: <Heart size={24} strokeWidth={1.8} />,
                 title: "Leidenschaft",
                 body: "Jedes Stück erzählt eine Geschichte – und wir hören genau zu.",
               },
               {
-                icon: BadgeCheck,
+                icon: <BadgeCheck size={24} strokeWidth={1.8} />,
                 title: "Expertise",
                 body: "Feingehalte, Legierungen, Punzen, Zertifikate – wir kennen die Details.",
               },
               {
-                icon: HandCoins,
+                icon: <HandCoins size={24} strokeWidth={1.8} />,
                 title: "Transparenz",
                 body: "Klare Bewertung, faire Preise, sofortige Auszahlung in bar.",
               },
               {
-                icon: Sparkles,
+                icon: <Sparkles size={24} strokeWidth={1.8} />,
                 title: "Diskretion",
                 body: "Ihre Werte und Ihre Privatsphäre bleiben bei uns geschützt.",
               },
@@ -186,7 +186,7 @@ export default function UeberUnsPage() {
                 index={i}
                 title={v.title}
                 body={v.body}
-                Icon={v.icon}
+                icon={v.icon}
               />
             ))}
           </Stagger>
