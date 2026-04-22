@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { MagneticLink } from "@/components/button";
 import { SmartImage } from "@/components/smart-image";
+import { LionIcon } from "@/components/lion-icon";
 import { editorial } from "@/lib/images";
 
 type Category = {
@@ -124,10 +125,22 @@ export function WhatWeBuy() {
                     whileInView={{ scale: 1, opacity: 1 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.3 + i * 0.08, duration: 0.6 }}
-                    className="h-9 w-9 rounded-full border border-[var(--gold-400)]/40 flex items-center justify-center text-[var(--gold-400)] text-lg font-light group-hover:bg-[var(--gold-400)]/15 group-hover:rotate-45 transition-all"
+                    className="relative inline-flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-[var(--gold-300)]/20 via-[var(--gold-400)]/25 to-[var(--gold-700)]/15 border border-[var(--gold-400)]/45 shadow-[0_6px_16px_-6px_rgba(184,137,74,0.55)] group-hover:border-[var(--gold-400)]/80 group-hover:bg-[var(--gold-400)]/20 transition-all"
                     aria-hidden
                   >
-                    +
+                    <motion.span
+                      animate={{ y: [0, -2, 0], rotate: [0, 3, 0, -3, 0] }}
+                      transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+                      className="inline-flex"
+                    >
+                      <LionIcon className="h-6 w-auto brightness-0 invert opacity-80 group-hover:opacity-100 transition-opacity" />
+                    </motion.span>
+                    {/* Shimmer dot */}
+                    <motion.span
+                      animate={{ opacity: [0.3, 0.9, 0.3], scale: [0.8, 1.2, 0.8] }}
+                      transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                      className="absolute top-1 right-1 h-1 w-1 rounded-full bg-[var(--gold-200)]"
+                    />
                   </motion.span>
                 </div>
 
