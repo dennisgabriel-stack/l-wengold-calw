@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { contact, nav } from "@/lib/data";
+import { LionIcon } from "./lion-icon";
 
 export function Footer() {
   return (
@@ -10,6 +11,14 @@ export function Footer() {
 
       {/* Decorative radial glow */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,rgba(212,177,119,0.15),transparent_60%)] pointer-events-none" />
+
+      {/* Dezente Löwen-Silhouette als Brand-Mark im Hintergrund rechts */}
+      <div
+        className="absolute -right-24 md:-right-8 top-8 md:top-10 opacity-[0.05] pointer-events-none"
+        aria-hidden
+      >
+        <LionIcon className="w-[280px] md:w-[360px] h-auto" />
+      </div>
 
       {/* Huge watermark wordmark */}
       <div

@@ -3,6 +3,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { SmartImage } from "@/components/smart-image";
+import { LionIcon } from "@/components/lion-icon";
 import { editorial } from "@/lib/images";
 
 /**

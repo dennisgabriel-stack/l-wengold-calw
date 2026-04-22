@@ -5,6 +5,7 @@ import { useRef } from "react";
 import { ChevronDown } from "lucide-react";
 import { MagneticLink } from "@/components/button";
 import { LogoMark } from "@/components/logo";
+import { LionIcon } from "@/components/lion-icon";
 
 const heroStats = [
   { n: "25+", label: "Jahre Erfahrung" },
@@ -77,6 +78,16 @@ export function Hero() {
             fill="var(--espresso-900)"
           />
         </svg>
+      </motion.div>
+
+      {/* Giant faded lion watermark — luxury brand mark behind content */}
+      <motion.div
+        animate={{ y: [0, -10, 0], opacity: [0.06, 0.09, 0.06] }}
+        transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 pointer-events-none"
+        aria-hidden
+      >
+        <LionIcon className="w-[90vw] max-w-[900px] h-auto" />
       </motion.div>
 
       {/* Drifting sparkles */}
