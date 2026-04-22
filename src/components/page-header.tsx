@@ -8,28 +8,38 @@ export function PageHeader({
   eyebrow,
   title,
   lead,
+  showLogo = true,
+  padTop = true,
 }: {
   eyebrow: string;
   title: React.ReactNode;
   lead?: React.ReactNode;
+  showLogo?: boolean;
+  padTop?: boolean;
 }) {
   return (
-    <section className="relative pt-40 pb-24 md:pt-48 md:pb-28 px-5 sm:px-8 overflow-hidden">
+    <section
+      className={`relative ${
+        padTop ? "pt-40 md:pt-48" : "pt-12 md:pt-16"
+      } pb-24 md:pb-28 px-5 sm:px-8 overflow-hidden`}
+    >
       <div className="absolute inset-0 -z-10 bg-gradient-to-b from-[var(--cream-100)] via-[var(--cream-50)] to-[var(--cream-50)]" />
       <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_30%_10%,rgba(212,165,89,0.22),transparent_60%)]" />
 
       <div className="mx-auto max-w-5xl text-center relative">
-        <motion.div
-          initial={{ opacity: 0, y: 16, scale: 0.9 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] as const }}
-          className="flex justify-center mb-6"
-        >
-          <LogoMark
-            priority
-            className="!h-36 md:!h-48 !w-auto drop-shadow-[0_10px_30px_rgba(184,137,74,0.25)]"
-          />
-        </motion.div>
+        {showLogo && (
+          <motion.div
+            initial={{ opacity: 0, y: 16, scale: 0.9 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] as const }}
+            className="flex justify-center mb-6"
+          >
+            <LogoMark
+              priority
+              className="!h-36 md:!h-48 !w-auto drop-shadow-[0_10px_30px_rgba(184,137,74,0.25)]"
+            />
+          </motion.div>
+        )}
 
         <Ornament className="mx-auto w-32 mb-10 opacity-60" />
         <motion.p

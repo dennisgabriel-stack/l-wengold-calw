@@ -15,8 +15,42 @@ export const metadata: Metadata = {
 export default function UeberUnsPage() {
   return (
     <>
+      {/* Logo plaque on deep ink panel — first element, maximum contrast */}
+      <section className="relative pt-32 md:pt-40 pb-20 md:pb-24 px-5 sm:px-8 overflow-hidden isolate">
+        <div className="absolute inset-0 -z-10 bg-[var(--ink-900)]" />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-[#0a0604] via-[#120b06] to-[#0a0604]" />
+        <div className="absolute inset-x-0 top-0 h-2/3 -z-10 bg-[radial-gradient(ellipse_at_50%_0%,rgba(212,177,119,0.3),transparent_60%)]" />
+        <div className="absolute inset-x-0 bottom-0 h-1/2 -z-10 bg-[radial-gradient(ellipse_at_50%_100%,rgba(192,136,104,0.18),transparent_55%)]" />
+        <div
+          className="absolute inset-0 -z-10 opacity-[0.07] pointer-events-none"
+          style={{
+            backgroundImage:
+              "repeating-linear-gradient(45deg, rgba(212,177,119,0.6) 0 1px, transparent 1px 120px)",
+          }}
+          aria-hidden
+        />
+
+        <div className="mx-auto max-w-2xl">
+          <Reveal>
+            <div className="relative p-10 md:p-14 rounded-[32px] bg-gradient-to-br from-[var(--cream-50)] via-[var(--cream-100)] to-[var(--cream-200)] border border-[var(--gold-500)]/45 shadow-[0_40px_80px_-20px_rgba(13,9,5,0.7),0_10px_30px_-10px_rgba(184,137,74,0.5)]">
+              <span
+                className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-white/40 to-transparent rounded-t-[32px]"
+                aria-hidden
+              />
+              <LogoMark className="!h-auto !w-full max-w-sm mx-auto" priority />
+              <div className="gold-divider my-8" />
+              <p className="text-center text-xs md:text-sm uppercase tracking-[0.35em] text-[var(--gold-700)]">
+                Seit vielen Jahren in Calw
+              </p>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
       <PageHeader
         eyebrow="Über Löwengold Calw"
+        showLogo={false}
+        padTop={false}
         title={
           <>
             Ihr <em className="italic text-[var(--gold-600)]">Vertrauen</em> in
@@ -28,75 +62,65 @@ export default function UeberUnsPage() {
         Lernen Sie unser Haus kennen."
       />
 
-      {/* Story block */}
-      <section className="relative py-20 md:py-28 px-5 sm:px-8">
-        <div className="mx-auto max-w-7xl grid gap-16 lg:grid-cols-12 items-start">
-          <Reveal className="lg:col-span-5">
-            <div className="sticky top-32 p-10 rounded-3xl bg-[var(--cream-100)] border border-[var(--border)]">
-              <LogoMark className="!h-auto !w-full max-w-xs mx-auto" />
-              <div className="gold-divider my-8" />
-              <p className="text-center text-sm uppercase tracking-[0.3em] text-[var(--gold-600)]">
-                Seit vielen Jahren in Calw
-              </p>
-            </div>
+      {/* Story block — single centred column since the plaque moved up */}
+      <section className="relative py-16 md:py-20 px-5 sm:px-8">
+        <div className="mx-auto max-w-3xl space-y-10">
+          <Reveal>
+            <h2 className="font-display text-4xl md:text-5xl leading-tight text-[var(--espresso-800)]">
+              Wir schätzen und kaufen{" "}
+              <em className="italic text-[var(--gold-600)]">
+                Gold, Silber, Schmuck
+              </em>{" "}
+              und vieles mehr.
+            </h2>
+          </Reveal>
+          <Reveal delay={0.08}>
+            <p className="text-lg leading-relaxed text-[var(--espresso-700)]/90">
+              Löwengold Calw verfügt über ein Team erfahrener Experten mit
+              einem breiten Fachwissen im Schätzen und Ankaufen von Gold- und
+              Silberschmuck sowie Antiquitäten. Wir sind stolz darauf, unseren
+              Kunden hochwertige Produkte und erstklassigen Service zu bieten.
+              Besuchen Sie uns.
+            </p>
+          </Reveal>
+          <Reveal delay={0.12}>
+            <p className="text-lg leading-relaxed text-[var(--espresso-700)]/90">
+              Mit jahrelanger Erfahrung im Schätzen, Ankaufen und Handel von
+              Gold- und Silberschmuck sowie Antiquitäten ist Löwengold Calw die
+              erste Adresse für Schmuckliebhaber und Sammler im nördlichen
+              Schwarzwald. Unsere Expertise und Leidenschaft spiegeln sich in
+              jedem Schmuckstück wider.
+            </p>
+          </Reveal>
+          <Reveal delay={0.16}>
+            <p className="text-lg leading-relaxed text-[var(--espresso-700)]/90">
+              Vertrauen Sie auf unser Fachwissen und lassen Sie sich von unserem
+              Service überzeugen. Besuchen Sie uns noch heute und erleben Sie
+              exzellente Handwerkskunst und erstklassige Beratung – fair,
+              transparent, diskret.
+            </p>
           </Reveal>
 
-          <div className="lg:col-span-7 space-y-10">
-            <Reveal>
-              <h2 className="font-display text-4xl md:text-5xl leading-tight text-[var(--espresso-800)]">
-                Wir schätzen und kaufen{" "}
-                <em className="italic text-[var(--gold-600)]">Gold, Silber, Schmuck</em>{" "}
-                und vieles mehr.
-              </h2>
-            </Reveal>
-            <Reveal delay={0.08}>
-              <p className="text-lg leading-relaxed text-[var(--espresso-700)]/90">
-                Löwengold Calw verfügt über ein Team erfahrener Experten mit
-                einem breiten Fachwissen im Schätzen und Ankaufen von Gold-
-                und Silberschmuck sowie Antiquitäten. Wir sind stolz darauf,
-                unseren Kunden hochwertige Produkte und erstklassigen Service
-                zu bieten. Besuchen Sie uns.
-              </p>
-            </Reveal>
-            <Reveal delay={0.12}>
-              <p className="text-lg leading-relaxed text-[var(--espresso-700)]/90">
-                Mit jahrelanger Erfahrung im Schätzen, Ankaufen und Handel von
-                Gold- und Silberschmuck sowie Antiquitäten ist Löwengold Calw die
-                erste Adresse für Schmuckliebhaber und Sammler im nördlichen
-                Schwarzwald. Unsere Expertise und Leidenschaft spiegeln sich in
-                jedem Schmuckstück wider.
-              </p>
-            </Reveal>
-            <Reveal delay={0.16}>
-              <p className="text-lg leading-relaxed text-[var(--espresso-700)]/90">
-                Vertrauen Sie auf unser Fachwissen und lassen Sie sich von unserem
-                Service überzeugen. Besuchen Sie uns noch heute und erleben Sie
-                exzellente Handwerkskunst und erstklassige Beratung – fair,
-                transparent, diskret.
-              </p>
-            </Reveal>
+          <Divider />
 
-            <Divider />
+          <Reveal delay={0.2}>
+            <blockquote className="relative p-10 rounded-3xl bg-[var(--espresso-900)] text-[var(--cream-100)] overflow-hidden">
+              <div className="absolute inset-0 bg-paper-dark opacity-90" />
+              <span className="absolute -top-6 left-6 font-display text-[140px] leading-none text-[var(--gold-400)]/40">
+                &ldquo;
+              </span>
+              <p className="relative font-display text-2xl md:text-3xl leading-snug italic">
+                Entscheidend ist nicht das Aussehen – sondern Edelmetall-Gehalt
+                und Gewicht. Oft lohnt sich der Verkauf mehr, als viele denken.
+              </p>
+            </blockquote>
+          </Reveal>
 
-            <Reveal delay={0.2}>
-              <blockquote className="relative p-10 rounded-3xl bg-[var(--espresso-900)] text-[var(--cream-100)] overflow-hidden">
-                <div className="absolute inset-0 bg-paper-dark opacity-90" />
-                <span className="absolute -top-6 left-6 font-display text-[140px] leading-none text-[var(--gold-400)]/40">
-                  &ldquo;
-                </span>
-                <p className="relative font-display text-2xl md:text-3xl leading-snug italic">
-                  Entscheidend ist nicht das Aussehen – sondern Edelmetall-Gehalt
-                  und Gewicht. Oft lohnt sich der Verkauf mehr, als viele denken.
-                </p>
-              </blockquote>
-            </Reveal>
-
-            <Reveal delay={0.3} className="mt-10">
-              <MagneticLink href="/aktionstage" withArrow>
-                Aktionstage ansehen
-              </MagneticLink>
-            </Reveal>
-          </div>
+          <Reveal delay={0.3} className="mt-10">
+            <MagneticLink href="/aktionstage" withArrow>
+              Aktionstage ansehen
+            </MagneticLink>
+          </Reveal>
         </div>
       </section>
 
