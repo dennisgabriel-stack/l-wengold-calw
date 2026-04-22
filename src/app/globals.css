@@ -438,3 +438,44 @@ body.bg-paper::before {
 .border-hairline {
   border: 1px solid rgba(184, 137, 74, 0.25);
 }
+
+/* Long, soft S-curve fades between cream pages and dark ink panels.
+   Multi-stop gradient simulates an ease-out falloff so the eye never
+   catches a hard edge. */
+.panel-fade-top {
+  position: absolute;
+  inset-inline: 0;
+  top: 0;
+  height: 240px;
+  z-index: -10;
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    var(--cream-50) 0%,
+    rgba(251, 245, 231, 0.94) 12%,
+    rgba(251, 245, 231, 0.78) 28%,
+    rgba(251, 245, 231, 0.5) 46%,
+    rgba(251, 245, 231, 0.25) 66%,
+    rgba(251, 245, 231, 0.08) 84%,
+    rgba(251, 245, 231, 0) 100%
+  );
+}
+
+.panel-fade-bottom {
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  height: 240px;
+  z-index: -10;
+  pointer-events: none;
+  background: linear-gradient(
+    to top,
+    var(--cream-50) 0%,
+    rgba(251, 245, 231, 0.94) 12%,
+    rgba(251, 245, 231, 0.78) 28%,
+    rgba(251, 245, 231, 0.5) 46%,
+    rgba(251, 245, 231, 0.25) 66%,
+    rgba(251, 245, 231, 0.08) 84%,
+    rgba(251, 245, 231, 0) 100%
+  );
+}

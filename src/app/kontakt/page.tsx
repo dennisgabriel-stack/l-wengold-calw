@@ -41,8 +41,8 @@ export default function KontaktPage() {
           }}
           aria-hidden
         />
-        <div className="absolute inset-x-0 top-0 h-28 -z-10 bg-gradient-to-b from-[var(--cream-50)] to-transparent" />
-        <div className="absolute inset-x-0 bottom-0 h-28 -z-10 bg-gradient-to-t from-[var(--cream-50)] to-transparent" />
+        <div className="panel-fade-top" aria-hidden />
+        <div className="panel-fade-bottom" aria-hidden />
 
         <div className="mx-auto max-w-7xl grid gap-8 lg:grid-cols-12">
           {/* Info column — luxurious 3D ivory plaques */}
