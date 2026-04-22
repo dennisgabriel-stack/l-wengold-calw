@@ -42,7 +42,7 @@ export default function LeistungenPage() {
       />
 
       {/* All categories in one continuous dark luxury panel */}
-      <section className="relative pt-[18rem] pb-[18rem] md:pt-[20rem] md:pb-[20rem] px-5 sm:px-8 overflow-hidden isolate">
+      <section className="relative pt-[14rem] pb-[14rem] md:pt-[15rem] md:pb-[15rem] px-5 sm:px-8 overflow-hidden isolate">
         <div className="absolute inset-0 -z-10 bg-[var(--ink-900)]" />
         <div className="absolute inset-0 -z-10 bg-gradient-to-b from-[#0a0604] via-[#120b06] to-[#0a0604]" />
         <div className="absolute inset-x-0 top-0 h-[45%] -z-10 bg-[radial-gradient(ellipse_at_50%_0%,rgba(212,177,119,0.22),transparent_60%)]" />
@@ -283,7 +283,7 @@ export default function LeistungenPage() {
       </section>
 
       {/* Bringen Sie Unterlagen mit */}
-      <section className="relative py-28 px-5 sm:px-8">
+      <section className="relative py-16 md:py-20 px-5 sm:px-8">
         <div className="mx-auto max-w-4xl text-center">
           <Reveal>
             <h3 className="font-display text-3xl md:text-5xl leading-tight text-[var(--espresso-800)]">
