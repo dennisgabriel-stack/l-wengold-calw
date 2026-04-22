@@ -89,7 +89,7 @@ export function EditorialQuote() {
             >
               <span className="h-px w-10 bg-[var(--gold-400)]" />
               <p className="text-xs uppercase tracking-[0.3em] text-[var(--gold-400)]/80">
-                Löwengold Calw &middot; Inhaberin Claudia Paluna
+                Löwengold Calw &middot; Gold &amp; Silberankauf
               </p>
             </motion.div>
           </div>
