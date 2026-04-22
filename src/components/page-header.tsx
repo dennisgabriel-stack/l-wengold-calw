@@ -20,24 +20,84 @@ export function PageHeader({
   return (
     <section
       className={`relative ${
-        padTop ? "pt-40 md:pt-48" : "pt-12 md:pt-16"
+        padTop ? "pt-32 md:pt-40" : "pt-12 md:pt-16"
       } pb-24 md:pb-28 px-5 sm:px-8 overflow-hidden`}
     >
+      {/* Base gradient */}
       <div className="absolute inset-0 -z-10 bg-gradient-to-b from-[var(--cream-100)] via-[var(--cream-50)] to-[var(--cream-50)]" />
-      <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_30%_10%,rgba(212,165,89,0.22),transparent_60%)]" />
+
+      {/* Breathing primary gold radial */}
+      <motion.div
+        animate={{
+          opacity: [0.75, 1, 0.85],
+          scale: [0.98, 1.04, 1],
+        }}
+        transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_30%_10%,rgba(212,177,119,0.28),transparent_60%)]"
+      />
+      {/* Secondary rose radial drifting in from the opposite corner */}
+      <motion.div
+        animate={{
+          opacity: [0.35, 0.65, 0.4],
+          scale: [1.05, 0.97, 1.02],
+        }}
+        transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_80%_90%,rgba(192,136,104,0.2),transparent_55%)]"
+      />
+
+      {/* Drifting gold sparkles */}
+      <div className="absolute inset-0 -z-10 pointer-events-none">
+        {[
+          { l: "12%", t: "22%", s: 7, d: 0 },
+          { l: "84%", t: "18%", s: 9, d: 1.1 },
+          { l: "22%", t: "72%", s: 6, d: 2.2 },
+          { l: "78%", t: "66%", s: 8, d: 0.8 },
+          { l: "55%", t: "88%", s: 6, d: 1.6 },
+        ].map((p, i) => (
+          <motion.span
+            key={i}
+            initial={{ opacity: 0, scale: 0 }}
+            animate={{
+              opacity: [0, 0.8, 0.3, 0.9, 0.3],
+              scale: [0, 1, 0.85, 1.1, 0.85],
+              y: [0, -8, 0, -12, 0],
+            }}
+            transition={{
+              duration: 7,
+              delay: p.d,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+            className="absolute"
+            style={{ left: p.l, top: p.t, width: p.s, height: p.s }}
+          >
+            <svg viewBox="0 0 20 20" className="w-full h-full text-[var(--gold-400)]">
+              <path
+                d="M10 1 L12 8 L19 10 L12 12 L10 19 L8 12 L1 10 L8 8 Z"
+                fill="currentColor"
+              />
+            </svg>
+          </motion.span>
+        ))}
+      </div>
 
       <div className="mx-auto max-w-5xl text-center relative">
         {showLogo && (
           <motion.div
-            initial={{ opacity: 0, y: 16, scale: 0.9 }}
+            initial={{ opacity: 0, y: 20, scale: 0.85 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
-            transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] as const }}
-            className="flex justify-center mb-6"
+            transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] as const }}
+            className="flex justify-center mb-8"
           >
-            <LogoMark
-              priority
-              className="!h-36 md:!h-48 !w-auto drop-shadow-[0_10px_30px_rgba(184,137,74,0.25)]"
-            />
+            <motion.div
+              animate={{ y: [0, -6, 0] }}
+              transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <LogoMark
+                priority
+                className="!h-56 md:!h-72 lg:!h-80 !w-auto drop-shadow-[0_18px_45px_rgba(184,137,74,0.3)]"
+              />
+            </motion.div>
           </motion.div>
         )}
 
