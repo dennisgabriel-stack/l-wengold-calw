@@ -83,8 +83,8 @@ export function WhatWeBuy() {
           </motion.p>
         </div>
 
-        {/* 4 categories in asymmetric editorial grid */}
-        <div className="grid gap-5 md:gap-6 md:grid-cols-6">
+        {/* 4 categories in a balanced 2×2 grid on desktop */}
+        <div className="grid gap-5 md:gap-6 md:grid-cols-2">
           {cats.map((c, i) => (
             <motion.article
               key={c.n}
@@ -96,20 +96,14 @@ export function WhatWeBuy() {
                 duration: 0.9,
                 ease: [0.22, 1, 0.36, 1] as const,
               }}
-              className={`relative group overflow-hidden rounded-[28px] bg-[var(--ink-900)] text-[var(--cream-100)] ${
-                i === 0 || i === 3 ? "md:col-span-4" : "md:col-span-2"
-              } ${i === 1 ? "md:row-span-2 md:aspect-auto" : ""}`}
+              className="relative group overflow-hidden rounded-[28px] bg-[var(--ink-900)] text-[var(--cream-100)] aspect-[5/4]"
             >
-              <div
-                className={`relative ${
-                  i === 1 ? "h-full aspect-[4/5] md:aspect-auto" : "aspect-[16/9] md:aspect-[6/4]"
-                }`}
-              >
+              <div className="absolute inset-0">
                 <SmartImage
                   src={c.image.src}
                   alt={c.image.alt}
                   fill
-                  sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
+                  sizes="(max-width: 768px) 100vw, 50vw"
                   className="object-cover transition-transform duration-[1400ms] ease-out group-hover:scale-110"
                 />
                 {/* Rich tonal overlay */}
