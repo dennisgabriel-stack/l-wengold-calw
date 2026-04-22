@@ -92,7 +92,7 @@ export default function LeistungenPage() {
       />
 
       {/* Precious metals — Platin + Palladium as dark panel with ivory plaques */}
-      <section className="relative py-20 md:py-28 px-5 sm:px-8 overflow-hidden isolate">
+      <section className="relative pt-[20rem] md:pt-[22rem] pb-[20rem] md:pb-[22rem] px-5 sm:px-8 overflow-hidden isolate">
         <div className="absolute inset-0 -z-10 bg-[var(--ink-900)]" />
         <div className="absolute inset-0 -z-10 bg-gradient-to-b from-[#0a0604] via-[#120b06] to-[#0a0604]" />
         <div className="absolute inset-x-0 top-0 h-2/3 -z-10 bg-[radial-gradient(ellipse_at_50%_0%,rgba(212,177,119,0.22),transparent_60%)]" />
