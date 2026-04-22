@@ -8,7 +8,6 @@ import { Marquee } from "@/components/marquee";
 import { Divider, Ornament } from "@/components/ornaments";
 import { ServiceCard } from "@/components/service-card";
 import { contact, services } from "@/lib/data";
-import { ParallaxTiles } from "./_sections/parallax-tiles";
 import { SingleEarringSection } from "./_sections/single-earring";
 import { EditorialQuote } from "./_sections/editorial-quote";
 import { WhatWeBuy } from "./_sections/what-we-buy";
@@ -104,8 +103,6 @@ export default function HomePage() {
       </section>
 
       <EditorialQuote />
-
-      <ParallaxTiles />
 
       <WhatWeBuy />
 
