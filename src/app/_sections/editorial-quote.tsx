@@ -30,7 +30,7 @@ export function EditorialQuote() {
         {/* Photo */}
         <motion.div
           style={{ scale }}
-          className="lg:col-span-7 relative h-[360px] sm:h-[480px] lg:h-auto"
+          className="lg:col-span-7 relative h-[280px] sm:h-[420px] lg:h-auto"
         >
           <SmartImage
             src={editorial.watch.src}
@@ -39,15 +39,20 @@ export function EditorialQuote() {
             sizes="(max-width: 1024px) 100vw, 60vw"
             className="object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[rgba(13,9,5,0.15)] to-[var(--ink-900)] lg:bg-gradient-to-r lg:from-transparent lg:via-[rgba(13,9,5,0.15)] lg:to-[var(--ink-900)]" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[var(--ink-900)] via-transparent to-transparent lg:hidden" />
+          {/* Desktop: photo fades to ink on the right so the quote panel is fully dark */}
+          <div className="hidden lg:block absolute inset-0 bg-gradient-to-r from-transparent via-[rgba(13,9,5,0.15)] to-[var(--ink-900)]" />
+          {/* Mobile: strong bottom scrim so the text below sits on near-solid ink */}
+          <div className="lg:hidden absolute inset-0 bg-gradient-to-b from-[rgba(13,9,5,0.15)] via-[rgba(13,9,5,0.55)] to-[var(--ink-900)]" />
         </motion.div>
 
         {/* Quote */}
         <motion.div
           style={{ y }}
-          className="lg:col-span-5 relative flex items-center px-6 sm:px-10 lg:px-16 py-16 lg:py-24"
+          className="lg:col-span-5 relative flex items-center px-6 sm:px-10 lg:px-16 py-14 lg:py-24 bg-[var(--ink-900)] lg:bg-transparent"
         >
+          {/* Mobile-only soft radial so the copy has an even richer backdrop */}
+          <div className="lg:hidden absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_30%_30%,rgba(212,177,119,0.1),transparent_60%)] pointer-events-none" />
+
           <div>
             <motion.p
               initial={{ opacity: 0, y: 14 }}
@@ -63,11 +68,17 @@ export function EditorialQuote() {
               initial={{ opacity: 0, y: 28 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 1, delay: 0.1, ease: [0.22, 1, 0.36, 1] as const }}
-              className="mt-6 font-display text-4xl md:text-5xl lg:text-6xl leading-[1.08]"
+              transition={{
+                duration: 1,
+                delay: 0.1,
+                ease: [0.22, 1, 0.36, 1] as const,
+              }}
+              className="mt-6 font-display text-[2rem] sm:text-4xl md:text-5xl lg:text-6xl leading-[1.12] text-[var(--cream-50)]"
             >
-              <span className="text-gold-shimmer">Jedes Erbstück</span> erzählt
-              eine Geschichte &ndash; wir hören&nbsp;zu.
+              <span className="text-gold-shimmer italic mr-1">
+                Jedes Erbstück
+              </span>{" "}
+              erzählt eine Geschichte &ndash; wir hören&nbsp;zu.
             </motion.h2>
 
             <motion.p
@@ -75,7 +86,7 @@ export function EditorialQuote() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.9, delay: 0.25 }}
-              className="mt-6 text-base md:text-lg text-[var(--cream-200)]/85 leading-relaxed max-w-lg"
+              className="mt-6 text-base md:text-lg text-[var(--cream-100)]/95 leading-relaxed max-w-lg"
             >
               Entscheidend ist nicht das Aussehen &ndash; sondern
               Edelmetall-Gehalt und Gewicht. Oft lohnt sich der Verkauf mehr,
@@ -90,7 +101,7 @@ export function EditorialQuote() {
               className="mt-10 flex items-center gap-4"
             >
               <span className="h-px w-10 bg-[var(--gold-400)]" />
-              <p className="text-xs uppercase tracking-[0.3em] text-[var(--gold-400)]/80">
+              <p className="text-xs uppercase tracking-[0.3em] text-[var(--gold-400)]/85">
                 Löwengold Calw &middot; Gold &amp; Silberankauf
               </p>
             </motion.div>
