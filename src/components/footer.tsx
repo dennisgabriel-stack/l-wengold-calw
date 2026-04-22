@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { contact, nav } from "@/lib/data";
-import { LogoMark } from "./logo";
 
 export function Footer() {
   return (
@@ -26,8 +25,14 @@ export function Footer() {
         {/* Brand column */}
         <div className="lg:col-span-4">
           <Link href="/" className="inline-block group">
-            <span className="block rounded-3xl p-5 max-w-[260px] bg-[var(--cream-100)]/96 shadow-[var(--shadow-gold)]">
-              <LogoMark className="!h-20 !w-auto mx-auto" />
+            <span className="block font-display text-4xl md:text-5xl tracking-[0.22em] text-gold-shimmer">
+              LÖWENGOLD
+            </span>
+            <span className="mt-3 flex items-center gap-3">
+              <span className="h-px w-10 bg-[var(--gold-400)]/60" />
+              <span className="text-[10px] uppercase tracking-[0.38em] text-[var(--cream-200)]/60">
+                Gold &amp; Silberankauf
+              </span>
             </span>
           </Link>
           <p className="mt-8 text-sm leading-relaxed text-[var(--cream-200)]/75 max-w-sm">
