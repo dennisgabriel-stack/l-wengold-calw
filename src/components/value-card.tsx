@@ -1,8 +1,7 @@
 "use client";
 
 import { motion, type Variants } from "framer-motion";
-import { MouseEvent, useRef } from "react";
-import { type LucideIcon } from "lucide-react";
+import { MouseEvent, ReactNode, useRef } from "react";
 
 const itemVariants: Variants = {
   hidden: { opacity: 0, y: 24 },
@@ -22,12 +21,12 @@ export function ValueCard({
   index,
   title,
   body,
-  Icon,
+  icon,
 }: {
   index: number;
   title: string;
   body: string;
-  Icon: LucideIcon;
+  icon: ReactNode;
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const glow = useRef<HTMLSpanElement>(null);
@@ -118,9 +117,9 @@ export function ValueCard({
               repeat: Infinity,
               ease: "easeInOut",
             }}
-            className="relative inline-flex items-center justify-center h-14 w-14 rounded-2xl bg-gradient-to-br from-[var(--gold-300)]/25 via-[var(--gold-400)]/35 to-[var(--gold-600)]/20 border border-[var(--gold-500)]/35 shadow-[0_10px_20px_-8px_rgba(184,137,74,0.5)]"
+            className="relative inline-flex items-center justify-center h-14 w-14 rounded-2xl bg-gradient-to-br from-[var(--gold-300)]/25 via-[var(--gold-400)]/35 to-[var(--gold-600)]/20 border border-[var(--gold-500)]/35 shadow-[0_10px_20px_-8px_rgba(184,137,74,0.5)] text-[var(--gold-700)]"
           >
-            <Icon className="text-[var(--gold-700)]" size={24} strokeWidth={1.8} />
+            {icon}
             {/* inner shimmer dot */}
             <motion.span
               animate={{ opacity: [0.3, 0.9, 0.3], scale: [0.8, 1.2, 0.8] }}

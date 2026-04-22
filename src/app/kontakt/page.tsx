@@ -47,7 +47,7 @@ export default function KontaktPage() {
         <div className="mx-auto max-w-7xl grid gap-8 lg:grid-cols-12">
           {/* Info column — luxurious 3D ivory plaques */}
           <div className="lg:col-span-5 space-y-5">
-            <ContactCard index={0} label="Telefon" Icon={Phone}>
+            <ContactCard index={0} label="Telefon" icon={<Phone size={18} strokeWidth={1.9} />}>
               <a
                 href={`tel:${contact.phoneRaw}`}
                 className="font-display text-3xl text-[var(--espresso-900)] hover:text-[var(--gold-700)] transition-colors"
@@ -56,7 +56,7 @@ export default function KontaktPage() {
               </a>
             </ContactCard>
 
-            <ContactCard index={1} label="E-Mail" Icon={Mail}>
+            <ContactCard index={1} label="E-Mail" icon={<Mail size={18} strokeWidth={1.9} />}>
               <a
                 href={`mailto:${contact.emailRaw}`}
                 className="font-display text-2xl md:text-3xl text-[var(--espresso-900)] hover:text-[var(--gold-700)] break-all transition-colors"
@@ -65,7 +65,7 @@ export default function KontaktPage() {
               </a>
             </ContactCard>
 
-            <ContactCard index={2} label="Adresse" Icon={MapPin}>
+            <ContactCard index={2} label="Adresse" icon={<MapPin size={18} strokeWidth={1.9} />}>
               <a
                 href="https://maps.google.com/?q=Altburger+Str.+13+75365+Calw"
                 target="_blank"
@@ -81,7 +81,7 @@ export default function KontaktPage() {
             <ContactCard
               index={3}
               label="Öffnungszeiten · An Aktionstagen"
-              Icon={Clock}
+              icon={<Clock size={18} strokeWidth={1.9} />}
             >
               <ul className="space-y-2.5 tabular-nums text-[var(--espresso-900)]">
                 {contact.hours.map((h) => (
