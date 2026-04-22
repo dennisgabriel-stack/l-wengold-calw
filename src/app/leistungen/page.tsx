@@ -205,8 +205,8 @@ export default function LeistungenPage() {
 
 function PurityRow({ label, purities }: { label: string; purities: string[] }) {
   return (
-    <Reveal className="p-6 rounded-2xl bg-[rgba(251,241,215,0.06)] backdrop-blur border border-[var(--gold-400)]/20">
-      <p className="text-xs uppercase tracking-[0.3em] text-[var(--gold-400)] mb-4">
+    <Reveal className="p-6 rounded-2xl bg-[rgba(13,9,5,0.55)] backdrop-blur-md border border-[var(--gold-400)]/35 shadow-[0_20px_50px_-20px_rgba(13,9,5,0.6)]">
+      <p className="text-xs uppercase tracking-[0.3em] text-[var(--gold-300)] mb-4">
         {label}
       </p>
       <div className="flex flex-wrap gap-2">
