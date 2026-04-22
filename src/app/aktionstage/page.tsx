@@ -28,6 +28,36 @@ export default function AktionstagePage() {
         ganz ohne Termin."
       />
 
+      {/* Dates — luxury showcase right below the header */}
+      <section className="relative py-16 md:py-24 px-5 sm:px-8 overflow-hidden isolate">
+        <div className="absolute inset-0 -z-10 bg-[var(--ink-900)]" />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-[#0a0604] via-[#120b06] to-[#0a0604]" />
+        <div className="absolute inset-x-0 top-0 h-2/3 -z-10 bg-[radial-gradient(ellipse_at_50%_0%,rgba(212,177,119,0.28),transparent_60%)]" />
+        <div className="absolute inset-x-0 bottom-0 h-1/2 -z-10 bg-[radial-gradient(ellipse_at_15%_95%,rgba(192,136,104,0.22),transparent_55%)]" />
+        <div
+          className="absolute inset-0 -z-10 opacity-[0.07] pointer-events-none"
+          style={{
+            backgroundImage:
+              "repeating-linear-gradient(45deg, rgba(212,177,119,0.6) 0 1px, transparent 1px 120px)",
+          }}
+          aria-hidden
+        />
+        <div className="panel-fade-top" aria-hidden />
+        <div className="panel-fade-bottom" aria-hidden />
+
+        <div className="relative mx-auto max-w-6xl">
+          <AktionstageCards />
+
+          <Reveal delay={0.3} className="mt-10">
+            <p className="text-center text-xs md:text-sm text-[var(--cream-200)]/55 max-w-2xl mx-auto">
+              Die Termine stehen unter dem Vorbehalt von Änderungen. Bitte rufen
+              Sie uns vorab an oder schreiben Sie eine kurze E-Mail, damit wir
+              Sie aktuell informieren können.
+            </p>
+          </Reveal>
+        </div>
+      </section>
+
       {/* How it works */}
       <section className="relative py-20 md:py-28 px-5 sm:px-8">
         <div className="mx-auto max-w-7xl">
@@ -36,7 +66,8 @@ export default function AktionstagePage() {
               ✦ So läuft ein Aktionstag ab
             </p>
             <h2 className="font-display text-4xl md:text-6xl text-[var(--espresso-800)] leading-[1.05] max-w-3xl">
-              In drei Schritten zur <em className="italic text-[var(--gold-600)]">Barauszahlung</em>.
+              In drei Schritten zur{" "}
+              <em className="italic text-[var(--gold-600)]">Barauszahlung</em>.
             </h2>
           </Reveal>
 
@@ -77,33 +108,6 @@ export default function AktionstagePage() {
               </Reveal>
             ))}
           </Stagger>
-        </div>
-      </section>
-
-      {/* Dates */}
-      <section className="relative py-20 md:py-28 px-5 sm:px-8 bg-[var(--espresso-900)] text-[var(--cream-100)] overflow-hidden">
-        <div className="absolute inset-0 bg-paper-dark opacity-95" />
-        <div className="relative mx-auto max-w-7xl">
-          <Reveal>
-            <p className="text-xs uppercase tracking-[0.3em] text-[var(--gold-400)] mb-5">
-              ✦ Kommende Termine
-            </p>
-            <h2 className="font-display text-4xl md:text-6xl leading-[1.05] text-gold-shimmer max-w-3xl">
-              Notieren Sie sich diese Daten.
-            </h2>
-          </Reveal>
-
-          <div className="mt-14">
-            <AktionstageCards />
-          </div>
-
-          <Reveal delay={0.2} className="mt-10">
-            <p className="text-sm text-[var(--cream-200)]/65 max-w-2xl">
-              Die Termine stehen unter dem Vorbehalt von Änderungen. Bitte rufen
-              Sie uns vorab an oder schreiben Sie eine kurze E-Mail, damit wir
-              Sie aktuell informieren können.
-            </p>
-          </Reveal>
         </div>
       </section>
 
