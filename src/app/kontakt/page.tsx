@@ -47,35 +47,36 @@ export default function KontaktPage() {
         <div className="mx-auto max-w-7xl grid gap-8 lg:grid-cols-12">
           {/* Info column — luxurious 3D ivory plaques */}
           <div className="lg:col-span-5 space-y-5">
-            <ContactCard index={0} label="Telefon" icon={<Phone size={18} strokeWidth={1.9} />}>
-              <a
-                href={`tel:${contact.phoneRaw}`}
-                className="font-display text-3xl text-[var(--espresso-900)] hover:text-[var(--gold-700)] transition-colors"
-              >
-                {contact.phone}
-              </a>
+            <ContactCard
+              index={0}
+              label="Telefon"
+              icon={<Phone size={18} strokeWidth={1.9} />}
+              href={`tel:${contact.phoneRaw}`}
+            >
+              {contact.phone}
             </ContactCard>
 
-            <ContactCard index={1} label="E-Mail" icon={<Mail size={18} strokeWidth={1.9} />}>
-              <a
-                href={`mailto:${contact.emailRaw}`}
-                className="font-display text-2xl md:text-3xl text-[var(--espresso-900)] hover:text-[var(--gold-700)] break-all transition-colors"
-              >
+            <ContactCard
+              index={1}
+              label="E-Mail"
+              icon={<Mail size={18} strokeWidth={1.9} />}
+              href={`mailto:${contact.emailRaw}`}
+            >
+              <span className="break-all text-[22px] md:text-3xl">
                 {contact.email}
-              </a>
+              </span>
             </ContactCard>
 
-            <ContactCard index={2} label="Adresse" icon={<MapPin size={18} strokeWidth={1.9} />}>
-              <a
-                href="https://maps.google.com/?q=Altburger+Str.+13+75365+Calw"
-                target="_blank"
-                rel="noreferrer"
-                className="font-display text-3xl text-[var(--espresso-900)] hover:text-[var(--gold-700)] block transition-colors"
-              >
-                {contact.street}
-                <br />
-                {contact.zip} {contact.city}
-              </a>
+            <ContactCard
+              index={2}
+              label="Adresse"
+              icon={<MapPin size={18} strokeWidth={1.9} />}
+              href="https://maps.google.com/?q=Altburger+Str.+13+75365+Calw"
+              external
+            >
+              {contact.street}
+              <br />
+              {contact.zip} {contact.city}
             </ContactCard>
 
             <ContactCard
@@ -83,7 +84,7 @@ export default function KontaktPage() {
               label="Öffnungszeiten · An Aktionstagen"
               icon={<Clock size={18} strokeWidth={1.9} />}
             >
-              <ul className="space-y-2.5 tabular-nums text-[var(--espresso-900)]">
+              <ul className="space-y-2.5 tabular-nums text-[17px] md:text-lg font-sans">
                 {contact.hours.map((h) => (
                   <li
                     key={h.day}
