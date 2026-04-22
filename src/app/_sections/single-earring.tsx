@@ -26,7 +26,17 @@ export function SingleEarringSection() {
       className="relative py-28 md:py-40 px-5 sm:px-8 overflow-hidden"
     >
       {/* Shimmering backdrop */}
-      <div className="absolute inset-0 -z-10 bg-gradient-to-br from-[var(--cream-100)] via-[var(--cream-50)] to-[var(--cream-200)]" />
+      <div className="absolute inset-0 -z-10 bg-gradient-to-br from-[var(--cream-100)] via-[var(--cream-50)] to-[var(--cream-100)]" />
+      {/* Unify the bottom edge to cream-50 so the next dark section fades in
+          without a visible colour seam. */}
+      <div
+        aria-hidden
+        className="absolute inset-x-0 bottom-0 h-40 -z-10 pointer-events-none"
+        style={{
+          background:
+            "linear-gradient(to top, var(--cream-50) 0%, rgba(251,245,231,0.6) 50%, transparent 100%)",
+        }}
+      />
       <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_70%_30%,rgba(212,165,89,0.35),transparent_55%)]" />
       <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_10%_80%,rgba(184,137,74,0.2),transparent_50%)]" />
 

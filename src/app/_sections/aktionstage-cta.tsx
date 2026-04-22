@@ -39,7 +39,7 @@ export function AktionstageCTA() {
   }, []);
 
   return (
-    <section className="relative py-24 md:py-32 px-5 sm:px-8 overflow-hidden isolate">
+    <section className="relative py-32 md:py-40 px-5 sm:px-8 overflow-hidden isolate">
       {/* Full-bleed photo + deep overlays */}
       <SmartImage
         src={aktionstageBanner.src}
@@ -48,7 +48,7 @@ export function AktionstageCTA() {
         sizes="100vw"
         className="object-cover -z-10"
       />
-      <div className="absolute inset-0 -z-10 bg-[var(--ink-900)]/86" />
+      <div className="absolute inset-0 -z-10 bg-[var(--ink-900)]/88" />
       <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_50%_40%,rgba(212,177,119,0.3),transparent_65%)]" />
       <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_10%_90%,rgba(192,136,104,0.22),transparent_55%)]" />
       <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_90%_10%,rgba(37,52,40,0.22),transparent_55%)]" />
