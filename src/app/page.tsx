@@ -72,19 +72,46 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="relative py-28 md:py-36 px-5 sm:px-8">
+      <section className="relative py-28 md:py-36 px-5 sm:px-8 overflow-hidden isolate">
+        {/* Luxurious layered background for the 3 service cards */}
+        <div className="absolute inset-0 -z-10 bg-[var(--ink-900)]" />
+        {/* Ambient photo-light (top) */}
+        <div className="absolute inset-x-0 top-0 h-1/2 -z-10 bg-[radial-gradient(ellipse_at_50%_0%,rgba(212,177,119,0.22),transparent_60%)]" />
+        {/* Rose bloom (bottom left) */}
+        <div className="absolute inset-x-0 bottom-0 h-1/2 -z-10 bg-[radial-gradient(ellipse_at_15%_95%,rgba(192,136,104,0.18),transparent_55%)]" />
+        {/* Forest shadow (right) */}
+        <div className="absolute inset-y-0 right-0 w-1/2 -z-10 bg-[radial-gradient(ellipse_at_95%_50%,rgba(37,52,40,0.22),transparent_60%)]" />
+        {/* Faint diagonal gold lines */}
+        <div
+          className="absolute inset-0 -z-10 opacity-[0.06] pointer-events-none"
+          style={{
+            backgroundImage:
+              "repeating-linear-gradient(45deg, rgba(212,177,119,0.6) 0 1px, transparent 1px 120px)",
+          }}
+          aria-hidden
+        />
+        {/* Soft top + bottom edge fade so it blends into the cream pages */}
+        <div className="absolute inset-x-0 top-0 h-28 -z-10 bg-gradient-to-b from-[var(--cream-50)] to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-28 -z-10 bg-gradient-to-t from-[var(--cream-50)] to-transparent" />
+
         <div className="mx-auto max-w-7xl">
-          <SectionHeading
-            align="center"
-            eyebrow="Unsere Leistungen"
-            title={
-              <>
+          <div className="text-[var(--cream-100)]">
+            <div className="text-center">
+              <p className="text-xs md:text-sm uppercase tracking-[0.3em] text-[var(--gold-400)] mb-6">
+                <span className="mr-2">✦</span>Unsere Leistungen
+              </p>
+              <h2 className="font-display text-4xl md:text-6xl leading-[1.05] tracking-tight text-[var(--cream-100)]">
                 Drei Versprechen –{" "}
-                <span className="text-gold-shimmer">ein klares Wort</span>
-              </>
-            }
-            lead="Von der Bewertung bis zur Barauszahlung begleiten wir Sie mit Sachverstand, Diskretion und einer Leidenschaft fürs Detail."
-          />
+                <span className="text-gold-shimmer italic">
+                  ein klares Wort
+                </span>
+              </h2>
+              <p className="mt-6 mx-auto max-w-2xl text-lg text-[var(--cream-200)]/80 leading-relaxed">
+                Von der Bewertung bis zur Barauszahlung begleiten wir Sie mit
+                Sachverstand, Diskretion und einer Leidenschaft fürs Detail.
+              </p>
+            </div>
+          </div>
 
           <Divider className="my-16" />
 

@@ -140,8 +140,8 @@ export function Footer() {
       <div className="relative border-t border-[var(--cream-200)]/10">
         <div className="mx-auto max-w-7xl px-5 sm:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[var(--cream-200)]/60">
           <p>
-            &copy; {new Date().getFullYear()} Löwengold Calw &middot; Claudia
-            Paluna &middot; Alle Rechte vorbehalten.
+            &copy; {new Date().getFullYear()} Löwengold Calw &middot; Alle
+            Rechte vorbehalten.
           </p>
           <div className="flex items-center gap-6">
             <Link href="/impressum" className="hover:text-[var(--gold-400)]">
