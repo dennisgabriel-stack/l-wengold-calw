@@ -11,8 +11,7 @@ import { contact, services } from "@/lib/data";
 import { SingleEarringSection } from "./_sections/single-earring";
 import { EditorialQuote } from "./_sections/editorial-quote";
 import { WhatWeBuy } from "./_sections/what-we-buy";
-import { SmartImage } from "@/components/smart-image";
-import { aktionstageBanner } from "@/lib/images";
+import { AktionstageCTA } from "./_sections/aktionstage-cta";
 
 export default function HomePage() {
   return (
@@ -136,58 +135,7 @@ export default function HomePage() {
 
       <SingleEarringSection />
 
-      <section className="relative py-28 md:py-40 px-5 sm:px-8 overflow-hidden isolate">
-        {/* Full-bleed photo background */}
-        <SmartImage
-          src={aktionstageBanner.src}
-          alt={aktionstageBanner.alt}
-          fill
-          sizes="100vw"
-          className="object-cover -z-10"
-        />
-        {/* Dark overlay + warm gold mix */}
-        <div className="absolute inset-0 -z-10 bg-[var(--ink-900)]/82" />
-        <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_50%_40%,rgba(212,177,119,0.32),transparent_65%)]" />
-        <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_10%_85%,rgba(192,136,104,0.18),transparent_55%)]" />
-        <Ornament className="absolute -top-6 left-1/2 -translate-x-1/2 w-56 opacity-40" />
-
-        <div className="relative mx-auto max-w-5xl text-center text-[var(--cream-100)]">
-          <Reveal>
-            <p className="text-xs uppercase tracking-[0.3em] text-[var(--gold-400)] mb-6">
-              ✦ Aktionstage
-            </p>
-          </Reveal>
-          <Reveal delay={0.1} as="h2">
-            <span className="font-display text-5xl md:text-7xl lg:text-8xl leading-[1.02] text-gold-shimmer block">
-              Unsere nächsten Aktionstage
-            </span>
-          </Reveal>
-          <Reveal delay={0.2}>
-            <p className="mt-8 text-lg md:text-xl text-[var(--cream-200)]/90 max-w-2xl mx-auto leading-relaxed">
-              An unseren Aktionstagen öffnen wir für Sie das Tor zu unserer
-              Bewertungsstube. Wir schätzen Ihren Schmuck kostenlos, analysieren
-              Feingehalte und zahlen sofort in bar aus.
-            </p>
-          </Reveal>
-          <Reveal delay={0.3} className="mt-12 flex flex-wrap justify-center gap-4">
-            <MagneticLink
-              href="/aktionstage"
-              className="!bg-[var(--gold-500)] !text-[var(--espresso-900)] hover:!bg-[var(--gold-400)] !border-[var(--gold-500)]"
-              withArrow
-            >
-              Termine ansehen
-            </MagneticLink>
-            <MagneticLink
-              href="/kontakt"
-              variant="outline"
-              className="!border-[var(--gold-400)] !text-[var(--gold-400)] hover:!bg-[var(--gold-400)]/10"
-              withArrow
-            >
-              Termin anfragen
-            </MagneticLink>
-          </Reveal>
-        </div>
-      </section>
+      <AktionstageCTA />
 
       <section className="relative py-28 px-5 sm:px-8">
         <div className="mx-auto max-w-7xl grid gap-10 lg:grid-cols-2 items-center">
