@@ -42,7 +42,7 @@ export default function LeistungenPage() {
       />
 
       {/* All categories in one continuous dark luxury panel */}
-      <section className="relative pt-[22rem] pb-[22rem] md:pt-[24rem] md:pb-[24rem] px-5 sm:px-8 overflow-hidden isolate">
+      <section className="relative pt-[18rem] pb-[18rem] md:pt-[20rem] md:pb-[20rem] px-5 sm:px-8 overflow-hidden isolate">
         <div className="absolute inset-0 -z-10 bg-[var(--ink-900)]" />
         <div className="absolute inset-0 -z-10 bg-gradient-to-b from-[#0a0604] via-[#120b06] to-[#0a0604]" />
         <div className="absolute inset-x-0 top-0 h-[45%] -z-10 bg-[radial-gradient(ellipse_at_50%_0%,rgba(212,177,119,0.22),transparent_60%)]" />
@@ -81,7 +81,7 @@ export default function LeistungenPage() {
         <div className="panel-fade-top" aria-hidden />
         <div className="panel-fade-bottom" aria-hidden />
 
-        <div className="relative mx-auto max-w-6xl space-y-28 md:space-y-36">
+        <div className="relative mx-auto max-w-6xl space-y-14 md:space-y-20">
           {/* 01 — Edle Metalle: Platin & Palladium */}
           <CategoryBlock
             eyebrow="01 · Edle Metalle"
@@ -339,32 +339,32 @@ function CategoryBlock({
 }) {
   return (
     <div className="relative">
-      <div className="text-center mb-10 md:mb-14">
+      <div className="text-center mb-8 md:mb-10">
         <Reveal>
-          <div className="flex justify-center mb-5">
-            <span className="relative inline-flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-[var(--gold-300)]/20 via-[var(--gold-400)]/25 to-[var(--gold-700)]/15 border border-[var(--gold-400)]/45 shadow-[0_10px_22px_-6px_rgba(184,137,74,0.5)]">
-              <LionIcon className="h-8 w-auto brightness-0 invert opacity-85" />
-              <span className="absolute top-1.5 right-1.5 h-1.5 w-1.5 rounded-full bg-[var(--gold-200)] animate-ambient" />
+          <div className="flex justify-center mb-4">
+            <span className="relative inline-flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-[var(--gold-300)]/20 via-[var(--gold-400)]/25 to-[var(--gold-700)]/15 border border-[var(--gold-400)]/45 shadow-[0_10px_22px_-6px_rgba(184,137,74,0.5)]">
+              <LionIcon className="h-7 w-auto brightness-0 invert opacity-85" />
+              <span className="absolute top-1 right-1 h-1.5 w-1.5 rounded-full bg-[var(--gold-200)] animate-ambient" />
             </span>
           </div>
         </Reveal>
         <Reveal>
-          <p className="text-[11px] uppercase tracking-[0.3em] text-[var(--gold-400)] mb-5">
+          <p className="text-[11px] uppercase tracking-[0.3em] text-[var(--gold-400)] mb-4">
             ✦ {eyebrow}
           </p>
         </Reveal>
         <Reveal delay={0.08}>
-          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl leading-[1.05] text-[var(--cream-100)] max-w-3xl mx-auto">
+          <h2 className="font-display text-3xl md:text-5xl lg:text-6xl leading-[1.05] text-[var(--cream-100)] max-w-3xl mx-auto">
             {title}
           </h2>
         </Reveal>
         <Reveal delay={0.16}>
-          <p className="mx-auto mt-5 max-w-2xl text-base md:text-lg text-[var(--cream-200)]/80 leading-relaxed">
+          <p className="mx-auto mt-4 max-w-2xl text-base md:text-lg text-[var(--cream-200)]/80 leading-relaxed">
             {lead}
           </p>
         </Reveal>
       </div>
-      <div className="space-y-8">{children}</div>
+      <div className="space-y-6">{children}</div>
     </div>
   );
 }
