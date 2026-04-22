@@ -37,7 +37,7 @@ const categories: Category[] = [
   {
     title: "Gold & Goldschmuck",
     intro:
-      "Goldringe, Trauringe, Goldketten, Panzerketten, Anhänger, Goldarmbänder, Armreifen, Fußketten, Ohrringe, Creolen, Ohrstecker, Broschen, Manschettenknöpfe · Altgold, Bruchgold, Zahngold, Goldbarren, Goldmünzen, Altschmuck, Golduhren, Goldschmiedeabfälle.",
+      "Vom klassischen Ehering bis zum Goldbarren – wir bewerten jedes Stück nach Feingehalt und Gewicht, in allen Legierungen von 333er bis 999er Feingold. Auch Bruchgold, Zahngold und Goldschmiedeabfälle.",
     items: goldItems,
     purities: goldPurities,
     purityLabel: "Feingehalte Gold",
@@ -46,7 +46,7 @@ const categories: Category[] = [
   {
     title: "Silber & Silberschmuck",
     intro:
-      "Silberschmuck, Altsilber, Bruchsilber, Silberfiguren, Silberbarren, Silbermünzen, Silberuhren, Tafelsilber, Silberbesteck, Silbertablett.",
+      "Tafelsilber, Besteck, Figuren und alter Silberschmuck sind oft mehr wert, als Sie denken. Entscheidend sind Feingehalt und Gewicht – von 333er bis 999er Feinsilber.",
     items: silverItems,
     purities: silverPurities,
     purityLabel: "Feingehalte Silber",
@@ -55,21 +55,21 @@ const categories: Category[] = [
   {
     title: "Edelsteine",
     intro:
-      "Diamant, Brilliant, Opal, Aquamarin, Granat, Rubin, Saphir, Smaragd, u.v.m.",
+      "Funkelnde Steine gehören zu den wertvollsten Einzelstücken im Schmuckkasten. Wir prüfen Karat, Schliff, Reinheit und Farbe – Zertifikate bringen Sie am besten mit.",
     items: gems,
     icon: <Diamond size={26} strokeWidth={1.8} />,
   },
   {
     title: "Münzen",
     intro:
-      "Klassische Goldmünzen und internationale Anlagemünzen – wir kennen die Prägestätten und zahlen zum Tageskurs.",
+      "Klassische Goldmünzen und internationale Anlagemünzen – wir kennen die Prägestätten, unterscheiden Serien und Jahrgänge und zahlen zum aktuellen Tageskurs aus.",
     items: coins,
     icon: <Coins size={26} strokeWidth={1.8} />,
   },
   {
     title: "Antiquitäten & Erbschaften",
     intro:
-      "Modeschmuck, Erbschaften aller Art und Antiquitäten wie Ölgemälde, Teppiche, Zinn, Schreib- & Nähmaschinen, antike Geldscheine, Briefmarken und Möbel.",
+      "Von antiken Taschenuhren bis zu kompletten Nachlässen: Wir schätzen Erbschaften sachkundig, fair und diskret – auch bei Mischbeständen aus Gemälden, Zinn, Büchern und Sammelstücken.",
     items: antiques,
     icon: <Scroll size={26} strokeWidth={1.8} />,
   },
@@ -105,8 +105,8 @@ export default function LeistungenPage() {
           }}
           aria-hidden
         />
-        <div className="absolute inset-x-0 top-0 h-28 -z-10 bg-gradient-to-b from-[var(--cream-50)] to-transparent" />
-        <div className="absolute inset-x-0 bottom-0 h-28 -z-10 bg-gradient-to-t from-[var(--cream-50)] to-transparent" />
+        <div className="panel-fade-top" aria-hidden />
+        <div className="panel-fade-bottom" aria-hidden />
 
         <div className="mx-auto max-w-7xl">
           <div className="text-center mb-14">
