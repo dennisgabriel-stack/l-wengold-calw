@@ -95,7 +95,7 @@ export function PageHeader({
             >
               <LogoMark
                 priority
-                className="!h-56 md:!h-72 lg:!h-80 !w-auto drop-shadow-[0_18px_45px_rgba(184,137,74,0.3)]"
+                className="!h-72 md:!h-[22rem] lg:!h-[26rem] !w-auto drop-shadow-[0_20px_55px_rgba(184,137,74,0.35)]"
               />
             </motion.div>
           </motion.div>
